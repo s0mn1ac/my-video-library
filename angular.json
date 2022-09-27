@@ -107,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "my-video-library"
+  "cli": {
+    "analytics": false
+  }
 }
