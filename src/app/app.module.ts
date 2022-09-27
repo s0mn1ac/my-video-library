@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
+/* NgRx */
+import { NgRxModule } from './shared/modules/ngrx.module';
+
 /* Application modules */
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,7 +19,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgRxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

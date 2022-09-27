@@ -11,7 +11,6 @@ import { PipesModule } from './pipes.module';
 import { PrimeNgModule } from './primeng.module';
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     // TranslocoModule,
@@ -27,7 +26,6 @@ import { PrimeNgModule } from './primeng.module';
     ReactiveFormsModule,
     PipesModule,
     PrimeNgModule
-  ],
-  providers: []
+  ]
 })
-export class CoreModule { }
+export class SharedModule { }
