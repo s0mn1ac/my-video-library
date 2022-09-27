@@ -9,7 +9,6 @@ import { NgModule } from '@angular/core';
   ],
   exports: [
     
-  ],
-  imports: []
+  ]
 })
 export class PipesModule { }

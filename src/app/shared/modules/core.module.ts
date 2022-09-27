@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 
 /* Application modules */
 import { PipesModule } from './pipes.module';
-
+import { PrimeNgModule } from './primeng.module';
 
 @NgModule({
   declarations: [],
@@ -17,14 +17,16 @@ import { PipesModule } from './pipes.module';
     // TranslocoModule,
     FormsModule,
     ReactiveFormsModule,
-    PipesModule
+    PipesModule,
+    PrimeNgModule
   ],
   exports: [
     CommonModule,
     // TranslocoModule,
     FormsModule,
     ReactiveFormsModule,
-    PipesModule
+    PipesModule,
+    PrimeNgModule
   ],
   providers: []
 })
