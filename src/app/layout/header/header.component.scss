@@ -1,0 +1,13 @@
+div.header {
+    display: flex;
+    justify-content: center;
+    padding: 0 2rem;
+    background-color: var(--color-primary);
+    height: var(--header-height);
+
+    div.navbar-container {
+        display: flex;
+        flex-direction: column;
+        max-width: var(--max-width);
+    }
+}

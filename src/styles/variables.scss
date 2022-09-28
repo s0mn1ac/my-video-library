@@ -1,3 +1,36 @@
 :root {
-    --max-width: 1400px;
+
+    /* Font */
+
+    --font-family: Roboto, "Helvetica Neue", sans-serif;
+    --font-size: 14px;
+    --line-height: 20px;
+
+    --text-color-dark: #262626;
+    --text-color-light: #FFFFFF;
+
+    --text-color: var(--text-color-dark);
+
+
+    /* Colors */
+
+    --color-primary: #5260FF;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-light: #F4F5f8;
+    --color-dark: #222428;
+
+    --background-color: var(--color-white);
+
+
+    /* Sizes */
+
+    --header-height: 64px;
+    --max-width: 1300px;
+
+
+    /* Scrollbar */
+    --scrollbar-background-color: #C1C1C1;
+    --scrollbar-background-color-hover: #7D7D7D;
+
 }

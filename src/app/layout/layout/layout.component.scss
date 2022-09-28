@@ -1,0 +1,5 @@
+div.layout {
+    overflow-y: auto;
+    height: calc(100% - var(--header-height));
+    background-color: var(--background-color);
+}
