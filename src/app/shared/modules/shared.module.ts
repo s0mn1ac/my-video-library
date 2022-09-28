@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 /* Transloco */
-// import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoModule } from '@ngneat/transloco';
 
 /* Application modules */
 import { PipesModule } from './pipes.module';
@@ -13,7 +13,7 @@ import { PrimeNgModule } from './primeng.module';
 @NgModule({
   imports: [
     CommonModule,
-    // TranslocoModule,
+    TranslocoModule,
     FormsModule,
     ReactiveFormsModule,
     PipesModule,
@@ -21,7 +21,7 @@ import { PrimeNgModule } from './primeng.module';
   ],
   exports: [
     CommonModule,
-    // TranslocoModule,
+    TranslocoModule,
     FormsModule,
     ReactiveFormsModule,
     PipesModule,

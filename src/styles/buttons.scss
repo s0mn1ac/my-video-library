@@ -1,0 +1,15 @@
+button.header-button {
+    color: var(--color-white);
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    height: 100%;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}

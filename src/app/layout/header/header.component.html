@@ -1,7 +1,21 @@
-<div class="header">
+<ng-container *transloco="let t">
+
+    <div class="header">
     
-    <div class="navbar-container">
-        
+        <div class="navbar-container">
+            <div class="left-container">
+                <div class="logo-container" routerLink="board">
+                    LOGO
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="button-container">
+                    <button type="button" class="header-button" routerLink="movies"> {{ t('header.movies') }} </button>
+                    <button type="button" class="header-button" routerLink="series"> {{ t('header.series') }} </button>
+                </div>
+            </div>
+        </div>
+    
     </div>
 
-</div>
+</ng-container>
