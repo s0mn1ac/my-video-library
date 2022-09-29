@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
 
+  @Input() cardId!: string;
   @Input() item!: any;
 
 }

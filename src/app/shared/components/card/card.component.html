@@ -1,4 +1,4 @@
-<div class="card-layout">
+<div [id]="cardId" class="card-layout">
 
     <div class="image-container">
         <img [src]="'https://image.tmdb.org/t/p/w300' + item.posterPath" class="poster-image" *ngIf="item.posterPath !== null">
@@ -6,7 +6,7 @@
     </div>
 
     <div class="vote-average-container">
-        <app-vote-average></app-vote-average>
+        <app-vote-average [cardId]="cardId" [voteAverage]="item.voteAverage"></app-vote-average>
     </div>
 
     <div class="title-container">
