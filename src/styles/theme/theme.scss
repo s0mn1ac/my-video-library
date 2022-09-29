@@ -1,0 +1,18 @@
+@import './indigo.scss';
+@import './slate.scss';
+
+:root {
+
+    --color-primary-lighter: var(--color-indigo-300);
+    --color-primary-light: var(--color-indigo-400);
+    --color-primary: var(--color-indigo-500);
+    --color-primary-dark: var(--color-indigo-600);
+    --color-primary-darker: var(--tech-indigo-700);
+
+    --color-secondary-lighter: var(--color-slate-300);
+    --color-secondary-light: var(--color-slate-400);
+    --color-secondary: var(--color-slate-500);
+    --color-secondary-dark: var(--color-slate-600);
+    --color-secondary-darker: var(--tech-slate-700);
+
+}

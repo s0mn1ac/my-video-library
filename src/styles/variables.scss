@@ -1,9 +1,11 @@
+@import './theme/theme.scss';
+
 :root {
 
     /* Font */
 
     --font-family: Roboto, "Helvetica Neue", sans-serif;
-    --font-size: 14px;
+    --font-size: 16px;
     --line-height: 20px;
 
     --text-color-dark: #262626;
@@ -14,7 +16,6 @@
 
     /* Colors */
 
-    --color-primary: #5260FF;
     --color-white: #FFFFFF;
     --color-black: #000000;
     --color-light: #F4F5f8;
@@ -30,8 +31,11 @@
 
     --page-max-width: 1300px;
 
-    --card-height: 225px;
+    --card-height: 300px;
     --card-width: 150px;
+
+    --poster-height: 225px;
+    --poster-width: 150px;
 
     --border-radius: 10px;
 
