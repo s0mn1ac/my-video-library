@@ -49,4 +49,17 @@
     --scrollbar-background-color: #C1C1C1;
     --scrollbar-background-color-hover: #7D7D7D;
 
+
+    body.dark {
+
+
+        /* Font */
+
+        --text-color: var(--text-color-light);
+
+
+        /* Colors */
+
+        --background-color: var(--color-dark);
+    }
 }
