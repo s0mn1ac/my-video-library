@@ -2,7 +2,8 @@
     
     <div class="movies-section-layout custom-layout">
 
-        MOVIES
+        <app-carousel [items]="(movies$ | async) ?? []"></app-carousel>
+        <app-carousel-skeleton></app-carousel-skeleton>
         
     </div>
 

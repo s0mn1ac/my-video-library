@@ -1,0 +1,25 @@
+:host {
+    padding: 1rem 1rem 2rem;
+
+    div.card-layout {
+        position: relative;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow-low);
+        height: var(--card-height);
+        width: var(--card-width);
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+        img.poster-image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+            box-shadow: var(--box-shadow-high);
+        }
+    }
+}

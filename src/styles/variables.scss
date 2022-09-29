@@ -26,12 +26,25 @@
     /* Sizes */
 
     --header-height: 64px;
-    --max-width: 1300px;
+
+    --page-max-width: 1300px;
+
+    --card-height: 225px;
+    --card-width: 150px;
 
     --border-radius: 10px;
 
 
+    /* Shadows */
+
+    --box-shadow-low: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --box-shadow-medium: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    --box-shadow-high:  0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    --box-shadow-higher: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+
     /* Scrollbar */
+
     --scrollbar-background-color: #C1C1C1;
     --scrollbar-background-color-hover: #7D7D7D;
 

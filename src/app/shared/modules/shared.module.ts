@@ -9,6 +9,8 @@ import { TranslocoModule } from '@ngneat/transloco';
 /* Application modules */
 import { PipesModule } from './pipes.module';
 import { PrimeNgModule } from './primeng.module';
+import { ComponentsModule } from './components.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
@@ -17,7 +19,8 @@ import { PrimeNgModule } from './primeng.module';
     FormsModule,
     ReactiveFormsModule,
     PipesModule,
-    PrimeNgModule
+    PrimeNgModule,
+    ComponentsModule
   ],
   exports: [
     CommonModule,
@@ -25,7 +28,8 @@ import { PrimeNgModule } from './primeng.module';
     FormsModule,
     ReactiveFormsModule,
     PipesModule,
-    PrimeNgModule
+    PrimeNgModule,
+    ComponentsModule
   ]
 })
 export class SharedModule { }

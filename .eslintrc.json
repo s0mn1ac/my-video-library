@@ -19,6 +19,8 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "max-len": ["warn", 140],
+        "@angular-eslint/no-empty-lifecycle-method": "warn",
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -52,7 +54,10 @@
       ],
       "extends": [
         "plugin:@ngrx/recommended"
-      ]
+      ],
+      "rules": {
+        "@ngrx/no-typed-global-store": "off"
+      }
     }
   ]
 }
