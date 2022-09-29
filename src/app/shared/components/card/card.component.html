@@ -1,5 +1,4 @@
 <div class="card-layout">
-
-    <img [src]="'https://image.tmdb.org/t/p/w300' + item.posterPath" class="poster-image">
-
+    <img [src]="'https://image.tmdb.org/t/p/w300' + item.posterPath" class="poster-image" *ngIf="item.posterPath !== null">
+    <img [src]="'../../../../assets/images/common/image-not-available-placeholder.png'" class="image-not-available" *ngIf="item.posterPath === null">
 </div>

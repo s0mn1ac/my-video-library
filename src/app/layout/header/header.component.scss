@@ -1,9 +1,14 @@
 div.header {
+    position: fixed;
     display: flex;
     justify-content: center;
     padding: 0 2rem;
     background-color: var(--color-primary);
     height: var(--header-height);
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: var(--box-shadow-low);
 
     div.navbar-container {
         display: flex;

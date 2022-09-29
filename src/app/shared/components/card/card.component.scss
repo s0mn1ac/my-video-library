@@ -3,6 +3,9 @@
 
     div.card-layout {
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow-low);
         height: var(--card-height);
@@ -15,6 +18,10 @@
             height: 100%;
             width: 100%;
             object-fit: cover;
+        }
+
+        img.image-not-available {
+            width: 100%;
         }
 
         &:hover {
