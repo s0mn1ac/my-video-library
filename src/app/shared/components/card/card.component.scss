@@ -66,10 +66,13 @@
                 user-select: none;
             }
         }
+    }
+}
 
-        &:hover {
-            transform: scale(1.05);
-            box-shadow: var(--box-shadow-high);
-        }
+@media (hover: hover)  {
+    
+    div.card-layout:hover {
+        transform: scale(1.05);
+        box-shadow: var(--box-shadow-high);
     }
 }
