@@ -1,13 +1,34 @@
 /* NgRx */
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
-import { getPopularMoviesError, getPopularMoviesLoad, getPopularMoviesSuccess } from '../actions/movies.actions';
+import {
+  getNowPlayingMoviesError,
+  getNowPlayingMoviesLoad,
+  getNowPlayingMoviesSuccess,
+  getPopularMoviesError,
+  getPopularMoviesLoad,
+  getPopularMoviesSuccess,
+  getTopRatedMoviesError,
+  getTopRatedMoviesLoad,
+  getTopRatedMoviesSuccess,
+  getUpcomingMoviesError,
+  getUpcomingMoviesLoad,
+  getUpcomingMoviesSuccess
+} from '../actions/movies.actions';
 
 /* Interfaces */
 import { IMoviesState } from '../interfaces/movies-state.interface';
 
 export const initialState: IMoviesState = {
-  movies: [],
-  loading: true
+  popular: [],
+  nowPlaying: [],
+  upcoming: [],
+  topRated: [],
+  latest: [],
+  loadingPopular: true,
+  loadingNowPlaying: true,
+  loadingUpcoming: true,
+  loadingTopRated: true,
+  loadingLatest: true
 };
 
 export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
@@ -15,20 +36,77 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   on(getPopularMoviesLoad, (state): IMoviesState => {
     return {
       ...state,
-      loading: true
+      loadingPopular: true
     };
   }),
   on(getPopularMoviesSuccess, (state, { movies }): IMoviesState => {
     return {
       ...state,
-      movies: movies,
-      loading: false
+      popular: movies,
+      loadingPopular: false
     };
   }),
   on(getPopularMoviesError, (state, { error }): IMoviesState => {
     return {
       ...state,
-      loading: false
+      loadingPopular: false
+    };
+  }),
+  on(getNowPlayingMoviesLoad, (state): IMoviesState => {
+    return {
+      ...state,
+      loadingNowPlaying: true
+    };
+  }),
+  on(getNowPlayingMoviesSuccess, (state, { movies }): IMoviesState => {
+    return {
+      ...state,
+      nowPlaying: movies,
+      loadingNowPlaying: false
+    };
+  }),
+  on(getNowPlayingMoviesError, (state, { error }): IMoviesState => {
+    return {
+      ...state,
+      loadingNowPlaying: false
+    };
+  }),
+  on(getUpcomingMoviesLoad, (state): IMoviesState => {
+    return {
+      ...state,
+      loadingUpcoming: true
+    };
+  }),
+  on(getUpcomingMoviesSuccess, (state, { movies }): IMoviesState => {
+    return {
+      ...state,
+      upcoming: movies,
+      loadingUpcoming: false
+    };
+  }),
+  on(getUpcomingMoviesError, (state, { error }): IMoviesState => {
+    return {
+      ...state,
+      loadingUpcoming: false
+    };
+  }),
+  on(getTopRatedMoviesLoad, (state): IMoviesState => {
+    return {
+      ...state,
+      loadingTopRated: true
+    };
+  }),
+  on(getTopRatedMoviesSuccess, (state, { movies }): IMoviesState => {
+    return {
+      ...state,
+      topRated: movies,
+      loadingTopRated: false
+    };
+  }),
+  on(getTopRatedMoviesError, (state, { error }): IMoviesState => {
+    return {
+      ...state,
+      loadingTopRated: false
     };
   })
 );

@@ -3,6 +3,14 @@
     "header": {
         "movies": "Movies",
         "series": "Series"
+    },
+
+    "movies": {
+        "title": "Movies",
+        "whatsPopular": "What's popular",
+        "nowPlaying": "Now playing",
+        "upcoming": "Upcoming",
+        "topRated": "Top rated"
     }
 
 }

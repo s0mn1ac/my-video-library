@@ -1,10 +1,30 @@
+/* Angular */
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+
+/* RxJs */
 import { Observable } from 'rxjs';
-import { Movie } from 'src/app/shared/models/movie.model';
+
+/* NgRx */
+import { Store } from '@ngrx/store';
+import {
+  selectPopularMovies,
+  selectLoadingPopularMovies,
+  selectNowPlayingMovies,
+  selectLoadingNowPlayingMovies,
+  selectUpcomingMovies,
+  selectLoadingUpcomingMovies,
+  selectTopRatedMovies,
+  selectLoadingTopRatedMovies
+} from 'src/app/state/selectors/movies.selectors';
+
+/* Services */
 import { MoviesService } from 'src/app/shared/services/movies.service';
+
+/* Models */
+import { Movie } from 'src/app/shared/models/movie.model';
+
+/* Interfaces */
 import { IAppState } from 'src/app/state/interfaces/app-state.interface';
-import { selectMovies } from 'src/app/state/selectors/movies.selectors';
 
 @Component({
   selector: 'app-movies',
@@ -13,7 +33,17 @@ import { selectMovies } from 'src/app/state/selectors/movies.selectors';
 })
 export class MoviesComponent implements OnInit {
 
-  public movies$: Observable<Movie[]> = new Observable();
+  public popularMovies$: Observable<Movie[]> = new Observable();
+  public loadingPopular$: Observable<boolean> = new Observable();
+
+  public nowPlayingMovies$: Observable<Movie[]> = new Observable();
+  public loadingNowPlaying$: Observable<boolean> = new Observable();
+
+  public upcomingMovies$: Observable<Movie[]> = new Observable();
+  public loadingUpcoming$: Observable<boolean> = new Observable();
+
+  public topRatedMovies$: Observable<Movie[]> = new Observable();
+  public loadingTopRated$: Observable<boolean> = new Observable();
 
   constructor(
     private moviesService: MoviesService,
@@ -21,17 +51,26 @@ export class MoviesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('LOAD MOVIES')
     this.initStoreSelectors();
-    this.getPopularMovies();
+    this.getMovies();
   }
 
   private initStoreSelectors(): void {
-    this.movies$ = this.store.select(selectMovies);
+    this.popularMovies$ = this.store.select(selectPopularMovies);
+    this.loadingPopular$ = this.store.select(selectLoadingPopularMovies);
+    this.nowPlayingMovies$ = this.store.select(selectNowPlayingMovies);
+    this.loadingNowPlaying$ = this.store.select(selectLoadingNowPlayingMovies);
+    this.upcomingMovies$ = this.store.select(selectUpcomingMovies);
+    this.loadingUpcoming$ = this.store.select(selectLoadingUpcomingMovies);
+    this.topRatedMovies$ = this.store.select(selectTopRatedMovies);
+    this.loadingTopRated$ = this.store.select(selectLoadingTopRatedMovies);
   }
 
-  private getPopularMovies(): void {
+  private getMovies(): void {
     this.moviesService.getPopularMovies();
+    this.moviesService.getNowPlayingMovies();
+    this.moviesService.getUpcomingMovies();
+    this.moviesService.getTopRatedMovies();
   }
 
 }

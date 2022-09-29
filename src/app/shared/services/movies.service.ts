@@ -3,7 +3,12 @@ import { Injectable } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
 import { Store } from '@ngrx/store';
 import { catchError, map, Observable, of, throwError } from 'rxjs';
-import { getPopularMoviesLoad } from 'src/app/state/actions/movies.actions';
+import {
+  getNowPlayingMoviesLoad,
+  getPopularMoviesLoad,
+  getTopRatedMoviesLoad,
+  getUpcomingMoviesLoad
+} from 'src/app/state/actions/movies.actions';
 import { IAppState } from 'src/app/state/interfaces/app-state.interface';
 import { environment } from 'src/environments/environment';
 import { IMovie } from '../interfaces/movie.interface';
@@ -27,10 +32,39 @@ export class MoviesService {
   }
 
   public getPopularMoviesReport(page: number = 1): Observable<Movie[]> {
-    return this.httpClient.get(`${environment.tmdbMovieUrl}/popular?api_key=${environment.tmdbKey}${this.getActiveLang()}&page=${page}`)
-      .pipe(
-        map((response: any) => response.results.map((movie: IMovie) => new Movie(movie)))
-      );
+    return this.httpClient
+      .get(`${environment.tmdbMovieUrl}/popular?api_key=${environment.tmdbKey}${this.getActiveLang()}&page=${page}&region=ES`)
+      .pipe(map((response: any) => response.results.map((movie: IMovie) => new Movie(movie))));
+  }
+
+  public getNowPlayingMovies(): void {
+    this.store.dispatch(getNowPlayingMoviesLoad())
+  }
+
+  public getNowPlayingMoviesReport(page: number = 1): Observable<Movie[]> {
+    return this.httpClient
+      .get(`${environment.tmdbMovieUrl}/now_playing?api_key=${environment.tmdbKey}${this.getActiveLang()}&page=${page}&region=ES`)
+      .pipe(map((response: any) => response.results.map((movie: IMovie) => new Movie(movie))));
+  }
+
+  public getUpcomingMovies(): void {
+    this.store.dispatch(getUpcomingMoviesLoad())
+  }
+
+  public getUpcomingMoviesReport(page: number = 1): Observable<Movie[]> {
+    return this.httpClient
+      .get(`${environment.tmdbMovieUrl}/upcoming?api_key=${environment.tmdbKey}${this.getActiveLang()}&page=${page}&region=ES`)
+      .pipe(map((response: any) => response.results.map((movie: IMovie) => new Movie(movie))));
+  }
+
+  public getTopRatedMovies(): void {
+    this.store.dispatch(getTopRatedMoviesLoad())
+  }
+
+  public getTopRatedMoviesReport(page: number = 1): Observable<Movie[]> {
+    return this.httpClient
+      .get(`${environment.tmdbMovieUrl}/top_rated?api_key=${environment.tmdbKey}${this.getActiveLang()}&page=${page}&region=ES`)
+      .pipe(map((response: any) => response.results.map((movie: IMovie) => new Movie(movie))));
   }
 
   private getActiveLang(): string {

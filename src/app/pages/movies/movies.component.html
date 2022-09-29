@@ -1,10 +1,31 @@
-<section class="movies-section custom-section">
+<section class="movies-section custom-section" *transloco="let t">
     
     <div class="movies-section-layout custom-layout">
 
-        <app-carousel [items]="(movies$ | async) ?? []"></app-carousel>
-        <app-carousel-skeleton></app-carousel-skeleton>
-        
+        <div class="popular-container movies-container">
+            <h2> {{ t('movies.whatsPopular') }} </h2>
+            <app-carousel [items]="(popularMovies$ | async) ?? []" *ngIf="((loadingPopular$ | async) === false)"></app-carousel>
+            <app-carousel-skeleton *ngIf="((loadingPopular$ | async) === true)"></app-carousel-skeleton>
+        </div>
+
+        <div class="now-playing-container movies-container">
+            <h2> {{ t('movies.nowPlaying') }} </h2>
+            <app-carousel [items]="(nowPlayingMovies$ | async) ?? []" *ngIf="((loadingNowPlaying$ | async) === false)"></app-carousel>
+            <app-carousel-skeleton *ngIf="((loadingNowPlaying$ | async) === true)"></app-carousel-skeleton>
+        </div>
+
+        <div class="upcoming-container movies-container">
+            <h2> {{ t('movies.upcoming') }} </h2>
+            <app-carousel [items]="(upcomingMovies$ | async) ?? []" *ngIf="((loadingUpcoming$ | async) === false)"></app-carousel>
+            <app-carousel-skeleton *ngIf="((loadingUpcoming$ | async) === true)"></app-carousel-skeleton>
+        </div>
+
+        <div class="top-rated-container movies-container">
+            <h2> {{ t('movies.topRated') }} </h2>
+            <app-carousel [items]="(topRatedMovies$ | async) ?? []" *ngIf="((loadingTopRated$ | async) === false)"></app-carousel>
+            <app-carousel-skeleton *ngIf="((loadingTopRated$ | async) === true)"></app-carousel-skeleton>
+        </div>
+
     </div>
 
 </section>

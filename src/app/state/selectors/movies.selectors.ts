@@ -7,12 +7,54 @@ import { IMoviesState } from '../interfaces/movies-state.interface';
 
 export const selectMoviesState = (state: IAppState) => state.movies;
 
-export const selectMovies = createSelector(
+
+/* --------- Get popular movies --------------------------------------------------------------------------------------------------------- */
+
+export const selectPopularMovies = createSelector(
   selectMoviesState,
-  (state: IMoviesState) => state.movies
+  (state: IMoviesState) => state.popular
 );
 
-export const selectMoviesLoading = createSelector(
+export const selectLoadingPopularMovies = createSelector(
   selectMoviesState,
-  (state: IMoviesState) => state.loading
+  (state: IMoviesState) => state.loadingPopular
+);
+
+
+/* --------- Get now playing movies ----------------------------------------------------------------------------------------------------- */
+
+export const selectNowPlayingMovies = createSelector(
+  selectMoviesState,
+  (state: IMoviesState) => state.nowPlaying
+);
+
+export const selectLoadingNowPlayingMovies = createSelector(
+  selectMoviesState,
+  (state: IMoviesState) => state.loadingNowPlaying
+);
+
+
+/* --------- Get upcoming movies -------------------------------------------------------------------------------------------------------- */
+
+export const selectUpcomingMovies = createSelector(
+  selectMoviesState,
+  (state: IMoviesState) => state.upcoming
+);
+
+export const selectLoadingUpcomingMovies = createSelector(
+  selectMoviesState,
+  (state: IMoviesState) => state.loadingUpcoming
+);
+
+
+/* --------- Get top rated movies ------------------------------------------------------------------------------------------------------- */
+
+export const selectTopRatedMovies = createSelector(
+  selectMoviesState,
+  (state: IMoviesState) => state.topRated
+);
+
+export const selectLoadingTopRatedMovies = createSelector(
+  selectMoviesState,
+  (state: IMoviesState) => state.loadingTopRated
 );
