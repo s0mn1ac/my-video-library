@@ -5,6 +5,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow-low);
         height: var(--card-height);
@@ -20,6 +21,10 @@
             width: var(--poster-width);
             justify-content: center;
             overflow: hidden;
+            border-bottom-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-low);
+            overflow: hidden;
 
             img.poster-image {
                 height: 100%;
@@ -34,27 +39,19 @@
 
         div.vote-average-container {
             position: absolute;
-            bottom: 66px;
+            bottom: 56px;
             left: 19px;
             z-index: 1;
         }
 
         div.title-container {
-            position: absolute;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-            bottom: 0;
-            height: 85px;
             width: 100%;
-            background-color: var(--background-color);
-            border-top-left-radius: var(--border-radius);
-            border-top-right-radius: var(--border-radius);
             color: var(--text-color);
-            padding: 25px 19px 0;
+            padding: 25px 19px 10px;
             font-weight: 500;
             font-size: 14px;
-            box-shadow: var(--box-shadow-low);
 
             span.title {
                 overflow: hidden;
