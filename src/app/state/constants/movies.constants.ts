@@ -16,4 +16,6 @@ export class MoviesConstants {
   public static MOVIES_PAGE_GET_TOP_RATED_MOVIES_SUCCESS = '[Movies Page] Get Top Rated Movies Success';
   public static MOVIES_PAGE_GET_TOP_RATED_MOVIES_ERROR = '[Movies Page] Get Top Rated Movies Error';
 
+  public static MESSAGES_CLEAR_MOVIES_MESSAGE = '[Messages] Clear Movies Message';
+
 }

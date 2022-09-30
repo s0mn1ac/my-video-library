@@ -1,6 +1,7 @@
 /* NgRx */
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 import {
+  clearMoviesMessage,
   getNowPlayingMoviesError,
   getNowPlayingMoviesLoad,
   getNowPlayingMoviesSuccess,
@@ -28,7 +29,8 @@ export const initialState: IMoviesState = {
   loadingNowPlaying: true,
   loadingUpcoming: true,
   loadingTopRated: true,
-  loadingLatest: true
+  loadingLatest: true,
+  message: null
 };
 
 export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
@@ -107,6 +109,11 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
     return {
       ...state,
       loadingTopRated: false
+    };
+  }),
+  on(clearMoviesMessage, (state): IMoviesState => {
+    return { ...state,
+      message: null
     };
   })
 );

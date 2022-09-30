@@ -74,3 +74,10 @@ export const getTopRatedMoviesError = createAction(
   MoviesConstants.MOVIES_PAGE_GET_TOP_RATED_MOVIES_ERROR,
   props<{ error: any }>()
 );
+
+
+/* --------- Clear message -------------------------------------------------------------------------------------------------------------- */
+
+export const clearMoviesMessage = createAction(
+  MoviesConstants.MESSAGES_CLEAR_MOVIES_MESSAGE,
+);

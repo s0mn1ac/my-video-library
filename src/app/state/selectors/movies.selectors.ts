@@ -58,3 +58,11 @@ export const selectLoadingTopRatedMovies = createSelector(
   selectMoviesState,
   (state: IMoviesState) => state.loadingTopRated
 );
+
+
+/* --------- Message -------------------------------------------------------------------------------------------------------------------- */
+
+export const selectMoviesMessage = createSelector(
+  selectMoviesState,
+  (state: IMoviesState) => state.message
+);
