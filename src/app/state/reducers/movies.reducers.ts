@@ -1,24 +1,12 @@
 /* NgRx */
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
-import {
-  getNowPlayingMoviesError,
-  getNowPlayingMoviesLoad,
-  getNowPlayingMoviesSuccess,
-  getPopularMoviesError,
-  getPopularMoviesLoad,
-  getPopularMoviesSuccess,
-  getTopRatedMoviesError,
-  getTopRatedMoviesLoad,
-  getTopRatedMoviesSuccess,
-  getUpcomingMoviesError,
-  getUpcomingMoviesLoad,
-  getUpcomingMoviesSuccess
-} from '../actions/movies.actions';
+import { MoviesActions } from '../actions/movies.actions';
 
 /* Interfaces */
 import { IMoviesState } from '../interfaces/movies-state.interface';
 
 export const initialState: IMoviesState = {
+  movie: null,
   popular: [],
   nowPlaying: [],
   upcoming: [],
@@ -28,85 +16,105 @@ export const initialState: IMoviesState = {
   loadingNowPlaying: true,
   loadingUpcoming: true,
   loadingTopRated: true,
-  loadingLatest: true
+  loadingLatest: true,
+  loadingMovie: true
 };
 
 export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   initialState,
-  on(getPopularMoviesLoad, (state): IMoviesState => {
+  on(MoviesActions.getPopularMoviesLoad, (state): IMoviesState => {
     return {
       ...state,
       loadingPopular: true
     };
   }),
-  on(getPopularMoviesSuccess, (state, { movies }): IMoviesState => {
+  on(MoviesActions.getPopularMoviesSuccess, (state, { movies }): IMoviesState => {
     return {
       ...state,
       popular: movies,
       loadingPopular: false
     };
   }),
-  on(getPopularMoviesError, (state, { error }): IMoviesState => {
+  on(MoviesActions.getPopularMoviesError, (state, { error }): IMoviesState => {
     return {
       ...state,
       loadingPopular: false
     };
   }),
-  on(getNowPlayingMoviesLoad, (state): IMoviesState => {
+  on(MoviesActions.getNowPlayingMoviesLoad, (state): IMoviesState => {
     return {
       ...state,
       loadingNowPlaying: true
     };
   }),
-  on(getNowPlayingMoviesSuccess, (state, { movies }): IMoviesState => {
+  on(MoviesActions.getNowPlayingMoviesSuccess, (state, { movies }): IMoviesState => {
     return {
       ...state,
       nowPlaying: movies,
       loadingNowPlaying: false
     };
   }),
-  on(getNowPlayingMoviesError, (state, { error }): IMoviesState => {
+  on(MoviesActions.getNowPlayingMoviesError, (state, { error }): IMoviesState => {
     return {
       ...state,
       loadingNowPlaying: false
     };
   }),
-  on(getUpcomingMoviesLoad, (state): IMoviesState => {
+  on(MoviesActions.getUpcomingMoviesLoad, (state): IMoviesState => {
     return {
       ...state,
       loadingUpcoming: true
     };
   }),
-  on(getUpcomingMoviesSuccess, (state, { movies }): IMoviesState => {
+  on(MoviesActions.getUpcomingMoviesSuccess, (state, { movies }): IMoviesState => {
     return {
       ...state,
       upcoming: movies,
       loadingUpcoming: false
     };
   }),
-  on(getUpcomingMoviesError, (state, { error }): IMoviesState => {
+  on(MoviesActions.getUpcomingMoviesError, (state, { error }): IMoviesState => {
     return {
       ...state,
       loadingUpcoming: false
     };
   }),
-  on(getTopRatedMoviesLoad, (state): IMoviesState => {
+  on(MoviesActions.getTopRatedMoviesLoad, (state): IMoviesState => {
     return {
       ...state,
       loadingTopRated: true
     };
   }),
-  on(getTopRatedMoviesSuccess, (state, { movies }): IMoviesState => {
+  on(MoviesActions.getTopRatedMoviesSuccess, (state, { movies }): IMoviesState => {
     return {
       ...state,
       topRated: movies,
       loadingTopRated: false
     };
   }),
-  on(getTopRatedMoviesError, (state, { error }): IMoviesState => {
+  on(MoviesActions.getTopRatedMoviesError, (state, { error }): IMoviesState => {
     return {
       ...state,
       loadingTopRated: false
+    };
+  }),
+  on(MoviesActions.getMovieDetailsLoad, (state): IMoviesState => {
+    return {
+      ...state,
+      loadingMovie: true
+    };
+  }),
+  on(MoviesActions.getMovieDetailsSuccess, (state, { movie }): IMoviesState => {
+    return {
+      ...state,
+      movie: movie,
+      loadingMovie: false
+    };
+  }),
+  on(MoviesActions.getMovieDetailsError, (state, { error }): IMoviesState => {
+    return {
+      ...state,
+      loadingMovie: false
     };
   })
 );

@@ -1,5 +1,6 @@
 /* Angular */
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 /* PrimeNg */
@@ -19,6 +20,7 @@ import { VoteAverageComponent } from '../components/vote-average/vote-average.co
     CarouselSkeletonComponent
   ],
   imports: [
+    RouterModule,
     CommonModule,
     PrimeNgModule
   ],

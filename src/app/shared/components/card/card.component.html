@@ -1,4 +1,4 @@
-<div [id]="cardId" class="card-layout">
+<div [id]="cardId" class="card-layout" [routerLink]="'movie/' + item.id">
 
     <div class="image-container">
         <img [src]="'https://image.tmdb.org/t/p/w300' + item.posterPath" class="poster-image" *ngIf="item.posterPath !== null">
@@ -13,6 +13,5 @@
         <span class="title"> {{ item.title }} </span>
         <span class="date"> {{ item.releaseDate }} </span>
     </div>
-    
 
 </div>

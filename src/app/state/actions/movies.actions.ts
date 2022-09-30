@@ -7,70 +7,91 @@ import { Movie } from 'src/app/shared/models/movie.model';
 /* Constants */
 import { MoviesConstants } from '../constants/movies.constants';
 
+export class MoviesActions {
 
-/* --------- Get popular movies --------------------------------------------------------------------------------------------------------- */
+  /* --------- Get popular movies ------------------------------------------------------------------------------------------------------- */
 
-export const getPopularMoviesLoad = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_POPULAR_MOVIES_LOAD
-);
+  public static getPopularMoviesLoad = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_POPULAR_MOVIES_LOAD
+  );
 
-export const getPopularMoviesSuccess = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_POPULAR_MOVIES_SUCCESS,
-  props<{ movies: Movie[] }>()
-);
+  public static getPopularMoviesSuccess = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_POPULAR_MOVIES_SUCCESS,
+    props<{ movies: Movie[] }>()
+  );
 
-export const getPopularMoviesError = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_POPULAR_MOVIES_ERROR,
-  props<{ error: any }>()
-);
-
-
-/* --------- Get now playing movies ----------------------------------------------------------------------------------------------------- */
-
-export const getNowPlayingMoviesLoad = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_NOW_PLAYING_MOVIES_LOAD
-);
-
-export const getNowPlayingMoviesSuccess = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_NOW_PLAYING_MOVIES_SUCCESS,
-  props<{ movies: Movie[] }>()
-);
-
-export const getNowPlayingMoviesError = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_NOW_PLAYING_MOVIES_ERROR,
-  props<{ error: any }>()
-);
+  public static getPopularMoviesError = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_POPULAR_MOVIES_ERROR,
+    props<{ error: any }>()
+  );
 
 
-/* --------- Get upcoming movies -------------------------------------------------------------------------------------------------------- */
+  /* --------- Get now playing movies --------------------------------------------------------------------------------------------------- */
 
-export const getUpcomingMoviesLoad = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_UPCOMING_MOVIES_LOAD
-);
+  public static getNowPlayingMoviesLoad = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_NOW_PLAYING_MOVIES_LOAD
+  );
 
-export const getUpcomingMoviesSuccess = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_UPCOMING_MOVIES_SUCCESS,
-  props<{ movies: Movie[] }>()
-);
+  public static getNowPlayingMoviesSuccess = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_NOW_PLAYING_MOVIES_SUCCESS,
+    props<{ movies: Movie[] }>()
+  );
 
-export const getUpcomingMoviesError = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_UPCOMING_MOVIES_ERROR,
-  props<{ error: any }>()
-);
+  public static getNowPlayingMoviesError = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_NOW_PLAYING_MOVIES_ERROR,
+    props<{ error: any }>()
+  );
 
 
-/* --------- Get top rated movies ------------------------------------------------------------------------------------------------------- */
+  /* --------- Get upcoming movies ------------------------------------------------------------------------------------------------------ */
 
-export const getTopRatedMoviesLoad = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_TOP_RATED_MOVIES_LOAD
-);
+  public static getUpcomingMoviesLoad = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_UPCOMING_MOVIES_LOAD
+  );
 
-export const getTopRatedMoviesSuccess = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_TOP_RATED_MOVIES_SUCCESS,
-  props<{ movies: Movie[] }>()
-);
+  public static getUpcomingMoviesSuccess = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_UPCOMING_MOVIES_SUCCESS,
+    props<{ movies: Movie[] }>()
+  );
 
-export const getTopRatedMoviesError = createAction(
-  MoviesConstants.MOVIES_PAGE_GET_TOP_RATED_MOVIES_ERROR,
-  props<{ error: any }>()
-);
+  public static getUpcomingMoviesError = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_UPCOMING_MOVIES_ERROR,
+    props<{ error: any }>()
+  );
+
+
+  /* --------- Get top rated movies ----------------------------------------------------------------------------------------------------- */
+
+  public static getTopRatedMoviesLoad = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_TOP_RATED_MOVIES_LOAD
+  );
+
+  public static getTopRatedMoviesSuccess = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_TOP_RATED_MOVIES_SUCCESS,
+    props<{ movies: Movie[] }>()
+  );
+
+  public static getTopRatedMoviesError = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_TOP_RATED_MOVIES_ERROR,
+    props<{ error: any }>()
+  );
+
+
+  /* --------- Get top rated movies ----------------------------------------------------------------------------------------------------- */
+
+  public static getMovieDetailsLoad = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_MOVIE_DETAILS_LOAD,
+    props<{ id: number | null }>()
+  );
+
+  public static getMovieDetailsSuccess = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_MOVIE_DETAILS_SUCCESS,
+    props<{ movie: Movie }>()
+  );
+
+  public static getMovieDetailsError = createAction(
+    MoviesConstants.MOVIES_PAGE_GET_MOVIE_DETAILS_ERROR,
+    props<{ error: any }>()
+  );
+  
+}
