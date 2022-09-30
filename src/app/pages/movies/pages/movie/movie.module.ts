@@ -2,19 +2,19 @@
 import { NgModule } from '@angular/core';
 
 /* Application modules */
-import { MoviesComponentRoutingModule } from './movies-routing.module';
+import { MovieComponentRoutingModule } from './movie-routing.module';
 import { SharedModule } from 'src/app/shared/modules/shared.module';
 
 /* Components */
-import { MoviesComponent } from './movies.component';
+import { MovieComponent } from './movie.component';
 
 @NgModule({
   imports: [
-    MoviesComponentRoutingModule,
+    MovieComponentRoutingModule,
     SharedModule
   ],
   declarations: [
-    MoviesComponent
+    MovieComponent
   ]
 })
-export class MoviesComponentModule { }
+export class MovieComponentModule { }

@@ -11,7 +11,7 @@ import { SeriesComponent } from './series.component';
 @NgModule({
   imports: [
     SeriesComponentRoutingModule,
-    SharedModule,
+    SharedModule
   ],
   declarations: [
     SeriesComponent
