@@ -5,6 +5,9 @@ import { MoviesActions } from '../actions/movies.actions';
 /* Interfaces */
 import { IMoviesState } from '../interfaces/movies-state.interface';
 
+/* Enums */
+import { MessageType } from 'src/app/shared/enums/message-type.enum';
+
 export const initialState: IMoviesState = {
   movie: null,
   popular: [],
@@ -39,7 +42,8 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   on(MoviesActions.getPopularMoviesError, (state, { error }): IMoviesState => {
     return {
       ...state,
-      loadingPopular: false
+      loadingPopular: false,
+      message: { type: MessageType.Error, key: 'getPopularMoviesError', error }
     };
   }),
   on(MoviesActions.getNowPlayingMoviesLoad, (state): IMoviesState => {
@@ -58,7 +62,8 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   on(MoviesActions.getNowPlayingMoviesError, (state, { error }): IMoviesState => {
     return {
       ...state,
-      loadingNowPlaying: false
+      loadingNowPlaying: false,
+      message: { type: MessageType.Error, key: 'getNowPlayingMoviesError', error }
     };
   }),
   on(MoviesActions.getUpcomingMoviesLoad, (state): IMoviesState => {
@@ -77,7 +82,8 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   on(MoviesActions.getUpcomingMoviesError, (state, { error }): IMoviesState => {
     return {
       ...state,
-      loadingUpcoming: false
+      loadingUpcoming: false,
+      message: { type: MessageType.Error, key: 'getUpcomingMoviesError', error }
     };
   }),
   on(MoviesActions.getTopRatedMoviesLoad, (state): IMoviesState => {
@@ -96,7 +102,8 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   on(MoviesActions.getTopRatedMoviesError, (state, { error }): IMoviesState => {
     return {
       ...state,
-      loadingTopRated: false
+      loadingTopRated: false,
+      message: { type: MessageType.Error, key: 'getTopRatedMoviesError', error }
     };
   }),
   on(MoviesActions.getMovieDetailsLoad, (state): IMoviesState => {
@@ -115,7 +122,8 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   on(MoviesActions.getMovieDetailsError, (state, { error }): IMoviesState => {
     return {
       ...state,
-      loadingMovie: false
+      loadingMovie: false,
+      message: { type: MessageType.Error, key: 'getMovieDetailsError', error }
     };
   }),
   on(MoviesActions.clearMoviesMessage, (state): IMoviesState => {

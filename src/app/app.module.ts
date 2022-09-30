@@ -1,6 +1,7 @@
 /* Angular */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 /* NgRx */
@@ -8,6 +9,9 @@ import { NgRxModule } from './shared/modules/ngrx.module';
 
 /* Transloco */
 import { TranslocoRootModule } from './shared/modules/transloco-root.module';
+
+/* PrimeNg */
+import { PrimeNgModule } from './shared/modules/primeng.module';
 
 /* Application modules */
 import { AppRoutingModule } from './app-routing.module';
@@ -25,8 +29,10 @@ import { HeaderComponent } from './layout/header/header.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    PrimeNgModule,
     NgRxModule,
     TranslocoRootModule
   ],

@@ -1,5 +1,8 @@
+/* Enums */
+import { MessageType } from "../enums/message-type.enum";
+
 export interface IMessage {
-  type: string;
+  type: MessageType;
   key: string;
   error: any;
 }

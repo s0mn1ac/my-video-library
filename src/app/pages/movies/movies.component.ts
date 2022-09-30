@@ -6,16 +6,7 @@ import { Observable } from 'rxjs';
 
 /* NgRx */
 import { Store } from '@ngrx/store';
-import {
-  selectPopularMovies,
-  selectLoadingPopularMovies,
-  selectNowPlayingMovies,
-  selectLoadingNowPlayingMovies,
-  selectUpcomingMovies,
-  selectLoadingUpcomingMovies,
-  selectTopRatedMovies,
-  selectLoadingTopRatedMovies
-} from 'src/app/state/selectors/movies.selectors';
+import { MoviesSelectors } from 'src/app/state/selectors/movies.selectors';
 
 /* Services */
 import { MoviesService } from 'src/app/shared/services/movies.service';
@@ -56,14 +47,14 @@ export class MoviesComponent implements OnInit {
   }
 
   private initStoreSelectors(): void {
-    this.popularMovies$ = this.store.select(selectPopularMovies);
-    this.loadingPopular$ = this.store.select(selectLoadingPopularMovies);
-    this.nowPlayingMovies$ = this.store.select(selectNowPlayingMovies);
-    this.loadingNowPlaying$ = this.store.select(selectLoadingNowPlayingMovies);
-    this.upcomingMovies$ = this.store.select(selectUpcomingMovies);
-    this.loadingUpcoming$ = this.store.select(selectLoadingUpcomingMovies);
-    this.topRatedMovies$ = this.store.select(selectTopRatedMovies);
-    this.loadingTopRated$ = this.store.select(selectLoadingTopRatedMovies);
+    this.popularMovies$ = this.store.select(MoviesSelectors.selectPopularMovies);
+    this.loadingPopular$ = this.store.select(MoviesSelectors.selectLoadingPopularMovies);
+    this.nowPlayingMovies$ = this.store.select(MoviesSelectors.selectNowPlayingMovies);
+    this.loadingNowPlaying$ = this.store.select(MoviesSelectors.selectLoadingNowPlayingMovies);
+    this.upcomingMovies$ = this.store.select(MoviesSelectors.selectUpcomingMovies);
+    this.loadingUpcoming$ = this.store.select(MoviesSelectors.selectLoadingUpcomingMovies);
+    this.topRatedMovies$ = this.store.select(MoviesSelectors.selectTopRatedMovies);
+    this.loadingTopRated$ = this.store.select(MoviesSelectors.selectLoadingTopRatedMovies);
   }
 
   private getMovies(): void {

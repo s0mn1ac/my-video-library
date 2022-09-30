@@ -1,4 +1,8 @@
+/* Angular */
 import { Component } from '@angular/core';
+
+/* Services */
+import { MessagesService } from './shared/services/messages.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-video-library';
+
+  constructor(private messagesService: MessagesService) { }
+
 }

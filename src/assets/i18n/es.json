@@ -1,8 +1,19 @@
 {
 
-    "header": {
-        "movies": "Películas",
-        "series": "Series"
+    "messages": {
+        "success": {
+            
+        },
+        "warning": {
+            
+        },
+        "error": {
+            "getPopularMoviesError": "Ha ocurrido un error al obtener el listado de películas \"Lo más popular\"",
+            "getNowPlayingMoviesError": "Ha ocurrido un error al obtener el listado de películas \"En cartelera\"",
+            "getUpcomingMoviesError": "Ha ocurrido un error al obtener el listado de películas \"Próximamente\"",
+            "getTopRatedMoviesError": "Ha ocurrido un error al obtener el listado de películas \"Mejor valoradas\"",
+            "getMovieDetailsError": "Ha ocurrido un error al obtener los detalles de la película seleccionada"
+        }
     },
 
     "movies": {
@@ -11,6 +22,10 @@
         "nowPlaying": "En cartelera",
         "upcoming": "Próximamente",
         "topRated": "Mejor valoradas"
+    },
+
+    "series": {
+        "title": "Series"
     }
 
 }

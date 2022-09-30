@@ -5,64 +5,68 @@ import { createSelector } from '@ngrx/store';
 import { IAppState } from '../interfaces/app-state.interface';
 import { IMoviesState } from '../interfaces/movies-state.interface';
 
-export const selectMoviesState = (state: IAppState) => state.movies;
+export class MoviesSelectors {
+
+  public static selectMoviesState = (state: IAppState) => state.movies;
 
 
-/* --------- Get popular movies --------------------------------------------------------------------------------------------------------- */
+  /* --------- Get pular movies --------------------------------------------------------------------------------------------------------- */
+  
+  public static selectPopularMovies = createSelector(
+    MoviesSelectors.selectMoviesState,
+    (state: IMoviesState) => state.popular
+  );
+  
+  public static selectLoadingPopularMovies = createSelector(
+    MoviesSelectors.selectMoviesState,
+    (state: IMoviesState) => state.loadingPopular
+  );
+  
+  
+  /* --------- Get w playing movies ----------------------------------------------------------------------------------------------------- */
+  
+  public static selectNowPlayingMovies = createSelector(
+    MoviesSelectors.selectMoviesState,
+    (state: IMoviesState) => state.nowPlaying
+  );
+  
+  public static selectLoadingNowPlayingMovies = createSelector(
+    MoviesSelectors.selectMoviesState,
+    (state: IMoviesState) => state.loadingNowPlaying
+  );
+  
+  
+  /* --------- Get coming movies -------------------------------------------------------------------------------------------------------- */
+  
+  public static selectUpcomingMovies = createSelector(
+    MoviesSelectors.selectMoviesState,
+    (state: IMoviesState) => state.upcoming
+  );
+  
+  public static selectLoadingUpcomingMovies = createSelector(
+    MoviesSelectors.selectMoviesState,
+    (state: IMoviesState) => state.loadingUpcoming
+  );
+  
+  
+  /* --------- Get p rated movies ------------------------------------------------------------------------------------------------------- */
+  
+  public static selectTopRatedMovies = createSelector(
+    MoviesSelectors.selectMoviesState,
+    (state: IMoviesState) => state.topRated
+  );
+  
+  public static selectLoadingTopRatedMovies = createSelector(
+    MoviesSelectors.selectMoviesState,
+    (state: IMoviesState) => state.loadingTopRated
+  );
+  
+  
+  /* --------- Message ------------------------------------------------------------------------------------------------------------------ */
+  
+  public static selectMoviesMessage = createSelector(
+    MoviesSelectors.selectMoviesState,
+    (state: IMoviesState) => state.message
+  );
 
-export const selectPopularMovies = createSelector(
-  selectMoviesState,
-  (state: IMoviesState) => state.popular
-);
-
-export const selectLoadingPopularMovies = createSelector(
-  selectMoviesState,
-  (state: IMoviesState) => state.loadingPopular
-);
-
-
-/* --------- Get now playing movies ----------------------------------------------------------------------------------------------------- */
-
-export const selectNowPlayingMovies = createSelector(
-  selectMoviesState,
-  (state: IMoviesState) => state.nowPlaying
-);
-
-export const selectLoadingNowPlayingMovies = createSelector(
-  selectMoviesState,
-  (state: IMoviesState) => state.loadingNowPlaying
-);
-
-
-/* --------- Get upcoming movies -------------------------------------------------------------------------------------------------------- */
-
-export const selectUpcomingMovies = createSelector(
-  selectMoviesState,
-  (state: IMoviesState) => state.upcoming
-);
-
-export const selectLoadingUpcomingMovies = createSelector(
-  selectMoviesState,
-  (state: IMoviesState) => state.loadingUpcoming
-);
-
-
-/* --------- Get top rated movies ------------------------------------------------------------------------------------------------------- */
-
-export const selectTopRatedMovies = createSelector(
-  selectMoviesState,
-  (state: IMoviesState) => state.topRated
-);
-
-export const selectLoadingTopRatedMovies = createSelector(
-  selectMoviesState,
-  (state: IMoviesState) => state.loadingTopRated
-);
-
-
-/* --------- Message -------------------------------------------------------------------------------------------------------------------- */
-
-export const selectMoviesMessage = createSelector(
-  selectMoviesState,
-  (state: IMoviesState) => state.message
-);
+}

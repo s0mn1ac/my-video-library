@@ -1,8 +1,19 @@
 {
 
-    "header": {
-        "movies": "Movies",
-        "series": "Series"
+    "messages": {
+        "success": {
+            
+        },
+        "warning": {
+            
+        },
+        "error": {
+            "getPopularMoviesError": "An error occurred while getting \"What's popular\" movies list",
+            "getNowPlayingMoviesError": "An error occurred while getting \"Now playing\" movies list",
+            "getUpcomingMoviesError": "An error occurred while getting \"Upcoming\" movies list",
+            "getTopRatedMoviesError": "An error occurred while getting \"Top rated\" movies list",
+            "getMovieDetailsError": "An error occurred while getting the details of the selected movie"
+        }
     },
 
     "movies": {
@@ -11,6 +22,10 @@
         "nowPlaying": "Now playing",
         "upcoming": "Upcoming",
         "topRated": "Top rated"
+    },
+
+    "series": {
+        "title": "Series"
     }
 
 }
