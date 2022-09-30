@@ -1,6 +1,9 @@
 /* Angular */
 import { Component, Input } from '@angular/core';
 
+/* Models */
+import { Movie } from '../../models/movie.model';
+
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
@@ -9,6 +12,6 @@ import { Component, Input } from '@angular/core';
 export class CarouselComponent {
 
   @Input() carouselId!: string;
-  @Input() items!: any[];
+  @Input() items!: Movie[];
 
 }

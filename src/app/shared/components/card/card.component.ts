@@ -1,6 +1,9 @@
 /* Angular */
 import { Component, Input } from '@angular/core';
 
+/* Models */
+import { Movie } from '../../models/movie.model';
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -9,6 +12,6 @@ import { Component, Input } from '@angular/core';
 export class CardComponent {
 
   @Input() cardId!: string;
-  @Input() item!: any;
+  @Input() item!: Movie;
 
 }

@@ -8,7 +8,7 @@ import { AfterViewInit, Component, Input } from '@angular/core';
 export class VoteAverageComponent implements AfterViewInit {
 
   @Input() cardId!: string;
-  @Input() voteAverage!: number;
+  @Input() voteAverage: number | undefined;
 
   private size: number = 34;
   private lineWidth: number = 3;
@@ -22,9 +22,10 @@ export class VoteAverageComponent implements AfterViewInit {
 
     const graph: HTMLElement | null = document.getElementById(`graph-${this.cardId}`);
 
-    if (graph === null) {
+    if (graph === null || this.voteAverage === undefined) {
       return;
     }
+
     const percent: number = this.voteAverage * 10;
 
     let canvas: HTMLCanvasElement = document.createElement('canvas');
