@@ -93,5 +93,12 @@ export class MoviesActions {
     MoviesConstants.MOVIES_PAGE_GET_MOVIE_DETAILS_ERROR,
     props<{ error: any }>()
   );
+
+
+  /* --------- Clear message ------------------------------------------------------------------------------------------------------------ */
+
+  public static clearMoviesMessage = createAction(
+    MoviesConstants.MESSAGES_CLEAR_MOVIES_MESSAGE,
+  );
   
 }

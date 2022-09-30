@@ -17,7 +17,8 @@ export const initialState: IMoviesState = {
   loadingUpcoming: true,
   loadingTopRated: true,
   loadingLatest: true,
-  loadingMovie: true
+  loadingMovie: true,
+  message: null
 };
 
 export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
@@ -115,6 +116,11 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
     return {
       ...state,
       loadingMovie: false
+    };
+  }),
+  on(MoviesActions.clearMoviesMessage, (state): IMoviesState => {
+    return { ...state,
+      message: null
     };
   })
 );

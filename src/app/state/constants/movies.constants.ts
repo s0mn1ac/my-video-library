@@ -19,5 +19,7 @@ export class MoviesConstants {
   public static MOVIES_PAGE_GET_MOVIE_DETAILS_LOAD = '[Movie Page] Get Movie Details Load';
   public static MOVIES_PAGE_GET_MOVIE_DETAILS_SUCCESS = '[Movie Page] Get Movie Details Success';
   public static MOVIES_PAGE_GET_MOVIE_DETAILS_ERROR = '[Movie Page] Get Movie Details Error';
+  
+  public static MESSAGES_CLEAR_MOVIES_MESSAGE = '[Messages] Clear Movies Message';
 
 }

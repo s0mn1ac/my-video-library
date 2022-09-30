@@ -1,6 +1,9 @@
 /* Models */
 import { Movie } from 'src/app/shared/models/movie.model';
 
+/* Interfaces */
+import { IMessage } from 'src/app/shared/interfaces/message.interface';
+
 export interface IMoviesState {
   movie: Movie | null;
   popular: Movie[];
@@ -14,4 +17,5 @@ export interface IMoviesState {
   loadingTopRated: boolean;
   loadingLatest: boolean;
   loadingMovie: boolean;
+  message: IMessage | null;
 }
