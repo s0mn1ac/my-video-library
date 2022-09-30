@@ -14,7 +14,6 @@ import { environment } from 'src/environments/environment';
 import { IMovie } from '../interfaces/movie.interface';
 import { IPaginator } from '../interfaces/paginator.interface';
 import { Movie } from '../models/movie.model';
-import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root'
