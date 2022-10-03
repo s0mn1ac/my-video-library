@@ -52,11 +52,36 @@ div.header {
             flex-grow: 1;
             height: 100%;
 
-            div.button-container {
+            div.buttons-container {
                 display: flex;
                 flex-direction: row;
                 gap: 1rem;
                 height: 100%;
+
+                div.button-container {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+
+                    div.selected-container {
+                        opacity: 0;
+                        height: 3px;
+                        width: 10px;
+                        border-radius: var(--border-radius);
+                        background-color: var(--color-white);
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                        transition: all 0.3s ease-in-out;
+
+                        &.selected {
+                            opacity: 1;
+                            width: 100%;
+                        }
+                    }
+                }
             }
         }
     }

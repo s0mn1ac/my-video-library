@@ -9,9 +9,25 @@
                 </div>
             </div>
             <div class="right-container">
-                <div class="button-container">
-                    <button type="button" class="header-button" routerLink="movies"> {{ t('movies.title') }} </button>
-                    <button type="button" class="header-button" routerLink="series"> {{ t('series.title') }} </button>
+                <div class="buttons-container">
+                    <div class="button-container">
+                        <button type="button"
+                            class="header-button"
+                            [ngClass]="{ 'selected': header.movies }"
+                            routerLink="movies">
+                                {{ t('movies.title') }}
+                        </button>
+                        <div class="selected-container" [ngClass]="{ 'selected': header.movies }"></div>
+                    </div>
+                    <div class="button-container">
+                        <button type="button"
+                            class="header-button"
+                            [ngClass]="{ 'selected': header.series }"
+                            routerLink="series">
+                                {{ t('series.title') }}
+                        </button>
+                        <div class="selected-container" [ngClass]="{ 'selected': header.series }"></div>
+                    </div>
                 </div>
             </div>
         </div>
