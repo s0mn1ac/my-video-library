@@ -2,8 +2,9 @@
     
     <div class="movie-section-layout custom-layout">
 
-        <div class="banner-container header-section-layout"
-        [style.background-image]="'linear-gradient(to right, #000000D6 150px, #0000008F 100%), url(https://image.tmdb.org/t/p/original' + movieDetails.backdropPath + ')'" *ngIf="movieDetails !== null">
+        <div *ngIf="movieDetails !== null"
+            [style.background-image]="'linear-gradient(to right, #000000 150px, #000000D6 100%), url(https://image.tmdb.org/t/p/original' + movieDetails.backdropPath + ')'"
+            class="banner-container header-section-layout">
 
             <div class="header-layout">
 
