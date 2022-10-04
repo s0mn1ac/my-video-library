@@ -11,7 +11,10 @@
 
             <div class="info-container">
 
-                <h2> {{ movieDetails.title }} </h2>
+                <h2>
+                    {{ movieDetails.title }}
+                    <span class="year"> {{ '(' + (movieDetails.releaseDate | dateFormat : yearFormat) + ')' }} </span>
+                </h2>
                 <div class="vote-average-container">
                     <app-vote-average
                         [voteAverageId]="'movie-details-' + movieDetails.id"

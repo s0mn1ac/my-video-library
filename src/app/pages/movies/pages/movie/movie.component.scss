@@ -25,6 +25,11 @@ section.movie-section {
             div.info-container {
                 display: block;
 
+                h2 span.year {
+                    font-weight: 400;
+                    color: var(--color-secondary);
+                }
+
                 p.tagline {
                     font-style: italic;
                     color: var(--color-secondary);
