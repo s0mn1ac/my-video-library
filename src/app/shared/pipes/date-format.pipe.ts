@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import * as moment from 'moment';
 import { Moment } from 'moment';
-import { DateFormatsConstants } from '../constants/date-formats.constants';
+import { DateFormatConstants } from '../constants/date-format.constants';
 
 @Pipe({
   name: 'dateFormat'
@@ -9,7 +9,7 @@ import { DateFormatsConstants } from '../constants/date-formats.constants';
 export class DateFormatPipe implements PipeTransform {
 
   transform(value: string | undefined, format: string): string {
-    return value === undefined ? '-' : moment(value, DateFormatsConstants.DATE_REPORT_FORMAT).format(format);
+    return value === undefined ? '-' : moment(value, DateFormatConstants.DATE_REPORT_FORMAT).format(format);
   }
 
 }

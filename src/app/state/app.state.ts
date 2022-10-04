@@ -1,14 +1,15 @@
 /* NgRx */
 import { ActionReducerMap } from '@ngrx/store';
+import { datesReducer } from './reducers/dates.reducers';
+import { moviesReducer } from './reducers/movies.reducers';
 import { MoviesEffects } from './effects/movies.effects';
-
 
 /* Interfaces */
 import { IAppState } from './interfaces/app-state.interface';
-import { moviesReducer } from './reducers/movies.reducers';
 
 export const ROOT_REDUCERS: ActionReducerMap<IAppState> = {
-  movies: moviesReducer
+  movies: moviesReducer,
+  dates: datesReducer
 };
 
 export const ROOT_EFFECTS: any[] = [

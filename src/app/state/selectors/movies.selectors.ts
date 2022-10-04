@@ -10,7 +10,7 @@ export class MoviesSelectors {
   public static selectMoviesState = (state: IAppState) => state.movies;
 
 
-  /* --------- Get pular movies --------------------------------------------------------------------------------------------------------- */
+  /* --------- Get popular movies ------------------------------------------------------------------------------------------------------- */
   
   public static selectPopularMovies = createSelector(
     MoviesSelectors.selectMoviesState,
@@ -23,7 +23,7 @@ export class MoviesSelectors {
   );
   
   
-  /* --------- Get w playing movies ----------------------------------------------------------------------------------------------------- */
+  /* --------- Get now playing movies --------------------------------------------------------------------------------------------------- */
   
   public static selectNowPlayingMovies = createSelector(
     MoviesSelectors.selectMoviesState,
@@ -36,7 +36,7 @@ export class MoviesSelectors {
   );
   
   
-  /* --------- Get coming movies -------------------------------------------------------------------------------------------------------- */
+  /* --------- Get upcoming movies ------------------------------------------------------------------------------------------------------ */
   
   public static selectUpcomingMovies = createSelector(
     MoviesSelectors.selectMoviesState,
