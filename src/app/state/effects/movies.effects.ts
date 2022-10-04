@@ -14,6 +14,7 @@ import { MoviesService } from 'src/app/shared/services/movies.service';
 
 /* Models */
 import { Movie } from 'src/app/shared/models/movie.model';
+import { MovieDetails } from 'src/app/shared/models/movie-details.model';
 
 @Injectable()
 export class MoviesEffects {
@@ -85,7 +86,7 @@ export class MoviesEffects {
       ofType(MoviesActions.getMovieDetailsLoad),
       mergeMap((props) => this.moviesService.getMovieDetailsReport(props.id)
         .pipe(
-          map((movie: Movie) => (MoviesActions.getMovieDetailsSuccess({ movie }))),
+          map((movieDetails: MovieDetails) => (MoviesActions.getMovieDetailsSuccess({ movieDetails }))),
           catchError((error) => of(MoviesActions.getMovieDetailsError({error})))
         )
       )

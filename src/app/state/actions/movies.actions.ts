@@ -3,6 +3,7 @@ import { createAction, props } from '@ngrx/store';
 
 /* Models */
 import { Movie } from 'src/app/shared/models/movie.model';
+import { MovieDetails } from 'src/app/shared/models/movie-details.model';
 
 /* Constants */
 import { MoviesConstants } from '../constants/movies.constants';
@@ -86,7 +87,7 @@ export class MoviesActions {
 
   public static getMovieDetailsSuccess = createAction(
     MoviesConstants.MOVIES_PAGE_GET_MOVIE_DETAILS_SUCCESS,
-    props<{ movie: Movie }>()
+    props<{ movieDetails: MovieDetails }>()
   );
 
   public static getMovieDetailsError = createAction(

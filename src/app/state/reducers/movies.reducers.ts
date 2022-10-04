@@ -7,9 +7,10 @@ import { IMoviesState } from '../interfaces/movies-state.interface';
 
 /* Enums */
 import { MessageType } from 'src/app/shared/enums/message-type.enum';
+import { Movie } from 'src/app/shared/models/movie.model';
 
 export const initialState: IMoviesState = {
-  movie: null,
+  movieDetails: null,
   popular: [],
   nowPlaying: [],
   upcoming: [],
@@ -112,10 +113,10 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
       loadingMovie: true
     };
   }),
-  on(MoviesActions.getMovieDetailsSuccess, (state, { movie }): IMoviesState => {
+  on(MoviesActions.getMovieDetailsSuccess, (state, { movieDetails }): IMoviesState => {
     return {
       ...state,
-      movie: movie,
+      movieDetails: movieDetails,
       loadingMovie: false
     };
   }),

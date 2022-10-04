@@ -21,7 +21,10 @@
         "whatsPopular": "Lo más popular",
         "nowPlaying": "En cartelera",
         "upcoming": "Próximamente",
-        "topRated": "Mejor valoradas"
+        "topRated": "Mejor valoradas",
+        "movie": {
+            "overview": "Vista general"
+        }
     },
 
     "series": {

@@ -16,6 +16,7 @@ import { environment } from 'src/environments/environment';
 import { IMovie } from '../interfaces/movie.interface';
 import { IPaginator } from '../interfaces/paginator.interface';
 import { Movie } from '../models/movie.model';
+import { MovieDetails } from '../models/movie-details.model';
 
 @Injectable({
   providedIn: 'root'
@@ -87,10 +88,10 @@ export class MoviesService {
     this.store.dispatch(MoviesActions.getMovieDetailsLoad({ id }))
   }
 
-  public getMovieDetailsReport(id: number | null): Observable<Movie> {
+  public getMovieDetailsReport(id: number | null): Observable<MovieDetails> {
     return this.httpClient
       .get(`${environment.tmdbMovieUrl}/${id}?api_key=${environment.tmdbKey}${this.getActiveLang()}`)
-      .pipe(map((response: any) => response));
+      .pipe(map((response: any) => new MovieDetails(response)));
   }
 
 

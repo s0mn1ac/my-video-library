@@ -2,7 +2,50 @@
     
     <div class="movie-section-layout custom-layout">
 
-        
+        <div class="banner-container" *ngIf="movieDetails !== null">
+
+            <div class="poster-container">
+                <img [src]="'https://image.tmdb.org/t/p/w300' + movieDetails.posterPath" class="poster-image" *ngIf="movieDetails.posterPath !== null">
+                <img [src]="'../../../../assets/images/common/image-not-available-placeholder.png'" class="image-not-available" *ngIf="movieDetails.posterPath === null">
+            </div>
+
+            <div class="info-container">
+
+                <h2> {{ movieDetails.title }} </h2>
+                <div class="vote-average-container">
+                    <app-vote-average
+                        [voteAverageId]="'movie-details-' + movieDetails.id"
+                        [voteAverage]="movieDetails.voteAverage"
+                        [outerSize]="50"
+                        [innerSize]="46"
+                        [fontSize]="18">
+                    </app-vote-average>
+                </div>
+                <p class="tagline"> {{ movieDetails.tagline | tagline }} </p>
+                <h3> {{ t('movies.movie.overview') }} </h3>
+                <p class="overview"> {{ movieDetails.overview }} </p>
+
+                <!-- <div class="title-container">
+                    <h2> {{ movieDetails.title }} </h2>
+                </div>
+
+                <div class="sub-title-container">
+                    
+                </div>
+                
+                <div class="overview-container">
+                    <p> {{ movieDetails.tagline }} </p>
+                    <h3> {{ t('movies.movie.overview') }} </h3>
+                    <p> {{ movieDetails.overview }} </p>
+                </div> -->
+
+            </div>
+
+        </div>
+
+        <div class="more-info-container">
+
+        </div>
 
     </div>
 

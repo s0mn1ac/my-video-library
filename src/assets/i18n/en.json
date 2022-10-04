@@ -21,7 +21,10 @@
         "whatsPopular": "What's popular",
         "nowPlaying": "Now playing",
         "upcoming": "Upcoming",
-        "topRated": "Top rated"
+        "topRated": "Top rated",
+        "movie": {
+            "overview": "Overview"
+        }
     },
 
     "series": {

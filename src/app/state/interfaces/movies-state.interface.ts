@@ -1,11 +1,12 @@
-/* Models */
-import { Movie } from 'src/app/shared/models/movie.model';
-
 /* Interfaces */
 import { IMessage } from 'src/app/shared/interfaces/message.interface';
 
+/* Models */
+import { Movie } from 'src/app/shared/models/movie.model';
+import { MovieDetails } from 'src/app/shared/models/movie-details.model';
+
 export interface IMoviesState {
-  movie: Movie | null;
+  movieDetails: MovieDetails | null;
   popular: Movie[];
   nowPlaying: Movie[];
   upcoming: Movie[];

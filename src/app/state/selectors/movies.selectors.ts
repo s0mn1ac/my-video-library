@@ -49,7 +49,7 @@ export class MoviesSelectors {
   );
   
   
-  /* --------- Get p rated movies ------------------------------------------------------------------------------------------------------- */
+  /* --------- Get top rated movies ----------------------------------------------------------------------------------------------------- */
   
   public static selectTopRatedMovies = createSelector(
     MoviesSelectors.selectMoviesState,
@@ -59,6 +59,19 @@ export class MoviesSelectors {
   public static selectLoadingTopRatedMovies = createSelector(
     MoviesSelectors.selectMoviesState,
     (state: IMoviesState) => state.loadingTopRated
+  );
+  
+  
+  /* --------- Get movie details -------------------------------------------------------------------------------------------------------- */
+  
+  public static selectMovieDetails = createSelector(
+    MoviesSelectors.selectMoviesState,
+    (state: IMoviesState) => state.movieDetails
+  );
+  
+  public static selectLoadingMovieDetails = createSelector(
+    MoviesSelectors.selectMoviesState,
+    (state: IMoviesState) => state.loadingMovie
   );
   
   
