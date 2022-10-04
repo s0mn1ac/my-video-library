@@ -4,9 +4,9 @@
 
         <div *ngIf="movieDetails !== null"
             [style.background-image]="'linear-gradient(to right, #000000 150px, #000000D6 100%), url(https://image.tmdb.org/t/p/original' + movieDetails.backdropPath + ')'"
-            class="banner-container header-section-layout">
+            class="movie-header-section-layout header-section-layout">
 
-            <div class="header-layout">
+            <div class="movie-header-layout header-layout">
 
                 <div class="poster-container">
                     <img [src]="'https://image.tmdb.org/t/p/w300' + movieDetails.posterPath" class="poster-image" *ngIf="movieDetails.posterPath !== null">
@@ -52,11 +52,15 @@
                 </div>
 
             </div>
+    
+        </div>
 
-            <div class="body-layout body-section-layout">
+        <div class="body-section-layout">
+
+            <div class="body-layout">
 
                 <div class="more-info-container">
-
+    
                 </div>
 
             </div>

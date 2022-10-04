@@ -2,7 +2,7 @@ section.movie-section {
 
     div.movie-section-layout {
 
-        div.banner-container {
+        div.movie-header-section-layout {
             background-color: var(--color-dark);
             background-repeat: no-repeat;
             background-size: cover;
@@ -36,6 +36,7 @@ section.movie-section {
                     div.sub-title-container {
                         display: flex;
                         flex-direction: row;
+                        flex-wrap: wrap;
                         align-items: center;
                         gap: 0.5rem;
                         margin: 1rem 0;
@@ -93,5 +94,13 @@ section.movie-section {
                 gap: 1rem;
             }
         }
+    }
+}
+
+@media (max-width: 720px) {
+
+    div.movie-header-layout {
+        flex-direction: column !important;
+        align-items: center;
     }
 }
