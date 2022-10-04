@@ -2,9 +2,7 @@
 
     div.vote-average-layout {
         position: relative;
-        height: 38px;
-        width: 38px;
-        border-radius: 19px;
+        border-radius: 100%;
         border: 2px solid (var(--color-primary-darker));
         background-color: var(--color-primary-darker);
         color: var(--color-white);
@@ -20,11 +18,7 @@
         span {
             color: var(--color-white);
             display: block;
-            line-height: 34px;
             text-align: center;
-            width: 34px;
-            font-size: 14px;
-            font-weight: 300;
         }
     }
 }
