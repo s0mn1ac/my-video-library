@@ -1,15 +1,11 @@
 /* NgRx */
 import { createAction, props } from '@ngrx/store';
 
-/* Models */
-import { Movie } from 'src/app/shared/models/movie.model';
-import { MovieDetails } from 'src/app/shared/models/movie-details.model';
-
 /* Constants */
-import { MoviesConstants } from '../constants/movies.constants';
 import { DatesConstants } from '../constants/dates.constants';
 
 export class DatesActions {
+
 
   /* --------- Set date format ---------------------------------------------------------------------------------------------------------- */
 

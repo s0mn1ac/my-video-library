@@ -2,8 +2,7 @@
 import { Injectable } from '@angular/core';
 
 /* RxJs */
-import { of } from 'rxjs';
-import { map, mergeMap, catchError } from 'rxjs/operators';
+import { of, map, mergeMap, catchError } from 'rxjs';
 
 /* NgRx */
 import { Actions, createEffect, ofType } from '@ngrx/effects';
@@ -18,6 +17,7 @@ import { MovieDetails } from 'src/app/shared/models/movie-details.model';
 
 @Injectable()
 export class MoviesEffects {
+
 
   /* --------- Get popular movies ------------------------------------------------------------------------------------------------------- */
 

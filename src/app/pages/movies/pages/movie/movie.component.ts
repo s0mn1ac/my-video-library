@@ -3,20 +3,23 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 /* RxJs */
-import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 
 /* NgRx */
 import { Store } from '@ngrx/store';
+import { DatesSelectors } from 'src/app/state/selectors/dates.selectors';
+import { MoviesSelectors } from 'src/app/state/selectors/movies.selectors';
 
 /* Services */
+import { CreditsService } from 'src/app/shared/services/credits.service';
 import { MoviesService } from 'src/app/shared/services/movies.service';
 
 /* Interfaces */
 import { IAppState } from 'src/app/state/interfaces/app-state.interface';
+
+/* Models */
 import { Movie } from 'src/app/shared/models/movie.model';
-import { MoviesSelectors } from 'src/app/state/selectors/movies.selectors';
 import { MovieDetails } from 'src/app/shared/models/movie-details.model';
-import { DatesSelectors } from 'src/app/state/selectors/dates.selectors';
 
 @Component({
   selector: 'app-movie',
@@ -41,6 +44,7 @@ export class MovieComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private moviesService: MoviesService,
+    private creditsService: CreditsService,
     private store: Store<IAppState>
   ) { }
 
@@ -60,7 +64,7 @@ export class MovieComponent implements OnInit, OnDestroy {
   }
 
   private initParamsSubscription(): void {
-    this.activatedRoute.params.subscribe((params: Params) => this.getMovieDetails(params['id'] ? parseInt(params['id'], 10) : null));
+    this.activatedRoute.params.subscribe((params: Params) => this.loadPage(params['id'] ? parseInt(params['id'], 10) : null));
   }
 
   private initStoreSelectors(): void {
@@ -84,8 +88,9 @@ export class MovieComponent implements OnInit, OnDestroy {
       .subscribe((yearFormat: string) => this.yearFormat = yearFormat);
   }
 
-  private getMovieDetails(id: number | null): void {
+  private loadPage(id: number | null): void {
     this.moviesService.getMovieDetails(id);
+    this.creditsService.getCredits(id);
   }
 
 }

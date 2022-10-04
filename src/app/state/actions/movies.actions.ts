@@ -10,6 +10,7 @@ import { MoviesConstants } from '../constants/movies.constants';
 
 export class MoviesActions {
 
+
   /* --------- Get popular movies ------------------------------------------------------------------------------------------------------- */
 
   public static getPopularMoviesLoad = createAction(

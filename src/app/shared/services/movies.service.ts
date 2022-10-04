@@ -2,19 +2,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+/* Environment */
+import { environment } from 'src/environments/environment';
+
 /* RxJs */
-import { catchError, map, Observable, of, throwError } from 'rxjs';
-import { MoviesActions } from 'src/app/state/actions/movies.actions';
+import { map, Observable } from 'rxjs';
 
 /* NgRx */
 import { Store } from '@ngrx/store';
+import { MoviesActions } from 'src/app/state/actions/movies.actions';
 
-/* Transloco */
+/* Services */
 import { TranslocoService } from '@ngneat/transloco';
-import { IAppState } from 'src/app/state/interfaces/app-state.interface';
-import { environment } from 'src/environments/environment';
+
+/* Interfaces */
 import { IMovie } from '../interfaces/movie.interface';
-import { IPaginator } from '../interfaces/paginator.interface';
+
+/* Models */
 import { Movie } from '../models/movie.model';
 import { MovieDetails } from '../models/movie-details.model';
 

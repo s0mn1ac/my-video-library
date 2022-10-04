@@ -19,6 +19,7 @@
                         {{ movieDetails.title }}
                         <span class="year"> {{ '(' + (movieDetails.releaseDate | dateFormat : yearFormat) + ')' }} </span>
                     </h2>
+
                     <div class="sub-title-container">
                         <span class="date"> {{ movieDetails.releaseDate | dateFormat : dateFormat }} </span>
                         <div class="separator"></div>
@@ -28,6 +29,7 @@
                         <div class="separator"></div>
                         <span class="runtime"> {{ movieDetails.runtime | runtime }} </span>
                     </div>
+
                     <div class="vote-average-container">
                         <app-vote-average
                             [voteAverageId]="'movie-details-' + movieDetails.id"
@@ -38,23 +40,14 @@
                         </app-vote-average>
                         <p-rating [(ngModel)]="rating" [stars]="5" [cancel]="false" (onRate)="onRate($event)"></p-rating>
                     </div>
+
                     <p class="tagline"> {{ movieDetails.tagline | tagline }} </p>
                     <h3> {{ t('movies.movie.overview') }} </h3>
                     <p class="overview"> {{ movieDetails.overview }} </p>
     
-                    <!-- <div class="title-container">
-                        <h2> {{ movieDetails.title }} </h2>
+                    <div class="crew-container">
+
                     </div>
-    
-                    <div class="sub-title-container">
-                        
-                    </div>
-                    
-                    <div class="overview-container">
-                        <p> {{ movieDetails.tagline }} </p>
-                        <h3> {{ t('movies.movie.overview') }} </h3>
-                        <p> {{ movieDetails.overview }} </p>
-                    </div> -->
     
                 </div>
 

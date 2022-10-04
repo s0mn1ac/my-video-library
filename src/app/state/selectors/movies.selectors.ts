@@ -13,12 +13,12 @@ export class MoviesSelectors {
   /* --------- Get popular movies ------------------------------------------------------------------------------------------------------- */
   
   public static selectPopularMovies = createSelector(
-    MoviesSelectors.selectMoviesState,
+    this.selectMoviesState,
     (state: IMoviesState) => state.popular
   );
   
   public static selectLoadingPopularMovies = createSelector(
-    MoviesSelectors.selectMoviesState,
+    this.selectMoviesState,
     (state: IMoviesState) => state.loadingPopular
   );
   
@@ -26,12 +26,12 @@ export class MoviesSelectors {
   /* --------- Get now playing movies --------------------------------------------------------------------------------------------------- */
   
   public static selectNowPlayingMovies = createSelector(
-    MoviesSelectors.selectMoviesState,
+    this.selectMoviesState,
     (state: IMoviesState) => state.nowPlaying
   );
   
   public static selectLoadingNowPlayingMovies = createSelector(
-    MoviesSelectors.selectMoviesState,
+    this.selectMoviesState,
     (state: IMoviesState) => state.loadingNowPlaying
   );
   
@@ -39,12 +39,12 @@ export class MoviesSelectors {
   /* --------- Get upcoming movies ------------------------------------------------------------------------------------------------------ */
   
   public static selectUpcomingMovies = createSelector(
-    MoviesSelectors.selectMoviesState,
+    this.selectMoviesState,
     (state: IMoviesState) => state.upcoming
   );
   
   public static selectLoadingUpcomingMovies = createSelector(
-    MoviesSelectors.selectMoviesState,
+    this.selectMoviesState,
     (state: IMoviesState) => state.loadingUpcoming
   );
   
@@ -52,12 +52,12 @@ export class MoviesSelectors {
   /* --------- Get top rated movies ----------------------------------------------------------------------------------------------------- */
   
   public static selectTopRatedMovies = createSelector(
-    MoviesSelectors.selectMoviesState,
+    this.selectMoviesState,
     (state: IMoviesState) => state.topRated
   );
   
   public static selectLoadingTopRatedMovies = createSelector(
-    MoviesSelectors.selectMoviesState,
+    this.selectMoviesState,
     (state: IMoviesState) => state.loadingTopRated
   );
   
@@ -65,12 +65,12 @@ export class MoviesSelectors {
   /* --------- Get movie details -------------------------------------------------------------------------------------------------------- */
   
   public static selectMovieDetails = createSelector(
-    MoviesSelectors.selectMoviesState,
+    this.selectMoviesState,
     (state: IMoviesState) => state.movieDetails
   );
   
   public static selectLoadingMovieDetails = createSelector(
-    MoviesSelectors.selectMoviesState,
+    this.selectMoviesState,
     (state: IMoviesState) => state.loadingMovie
   );
   
@@ -78,7 +78,7 @@ export class MoviesSelectors {
   /* --------- Message ------------------------------------------------------------------------------------------------------------------ */
   
   public static selectMoviesMessage = createSelector(
-    MoviesSelectors.selectMoviesState,
+    this.selectMoviesState,
     (state: IMoviesState) => state.message
   );
 
