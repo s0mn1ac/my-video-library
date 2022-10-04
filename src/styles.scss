@@ -4,6 +4,7 @@
 /* Styles */
 @import './styles/buttons.scss';
 @import './styles/layouts.scss';
+@import './styles/rating.scss';
 @import './styles/scrollbar.scss';
 @import './styles/sections.scss';
 @import './styles/text.scss';
@@ -24,4 +25,5 @@ body {
     font-family: var(--font-family);
     line-height: var(--line-height);
     font-size: var(--font-size);
+    font-weight: var(--font-weight);
 }

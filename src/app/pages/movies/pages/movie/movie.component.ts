@@ -28,6 +28,8 @@ export class MovieComponent implements OnInit, OnDestroy {
   public dateFormat!: string;
   public yearFormat!: string;
 
+  public rating: number = 3;
+
   public movieDetails!: MovieDetails | null;
 
   private movieDetails$: Observable<MovieDetails | null> = new Observable<Movie>();
@@ -51,6 +53,10 @@ export class MovieComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
+  }
+
+  public onRate(event: any): void {
+    console.log(event.value)
   }
 
   private initParamsSubscription(): void {

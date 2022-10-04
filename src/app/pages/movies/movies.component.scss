@@ -1,14 +1,17 @@
-div.movies-container {
-    margin-top: 2rem;
+div.movies-section-layout {
 
-    div.title-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 0.5rem;
-
-        span.material-symbols-rounded {
-            color: var(--color-primary);
+    div.movies-container {
+        margin-top: 2rem;
+    
+        div.title-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
+    
+            span.material-symbols-rounded {
+                color: var(--color-primary);
+            }
         }
     }
 }

@@ -7,8 +7,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
 import { SkeletonModule } from 'primeng/skeleton';
 import { ToastModule } from 'primeng/toast';
-import { MessagesService } from '../services/messages.service';
 import { MessageService } from 'primeng/api';
+import { RatingModule } from 'primeng/rating';
 
 @NgModule({
   imports: [
@@ -16,6 +16,7 @@ import { MessageService } from 'primeng/api';
     InputTextModule,
     CardModule,
     ToastModule,
+    RatingModule,
     SkeletonModule
   ],
   exports: [
@@ -23,6 +24,7 @@ import { MessageService } from 'primeng/api';
     InputTextModule,
     CardModule,
     ToastModule,
+    RatingModule,
     SkeletonModule
   ],
   providers: [
