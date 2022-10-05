@@ -1,8 +1,8 @@
 /* Angular */
 import { Component, Input } from '@angular/core';
 
-/* Models */
-import { Movie } from '../../models/movie.model';
+/* Interfaces */
+import { IMovie } from '../../interfaces/movie.interface';
 
 @Component({
   selector: 'app-card',
@@ -12,6 +12,6 @@ import { Movie } from '../../models/movie.model';
 export class CardComponent {
 
   @Input() cardId!: string;
-  @Input() item!: Movie;
+  @Input() item!: IMovie;
 
 }

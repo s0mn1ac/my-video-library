@@ -9,6 +9,7 @@ import { Observable, Subject, takeUntil } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { DatesSelectors } from 'src/app/state/selectors/dates.selectors';
 import { MoviesSelectors } from 'src/app/state/selectors/movies.selectors';
+import { CreditsSelectors } from 'src/app/state/selectors/credits.selectors';
 
 /* Services */
 import { CreditsService } from 'src/app/shared/services/credits.service';
@@ -16,10 +17,8 @@ import { MoviesService } from 'src/app/shared/services/movies.service';
 
 /* Interfaces */
 import { IAppState } from 'src/app/state/interfaces/app-state.interface';
-
-/* Models */
-import { Movie } from 'src/app/shared/models/movie.model';
-import { MovieDetails } from 'src/app/shared/models/movie-details.model';
+import { IMovieDetails } from 'src/app/shared/interfaces/movie-details.interface';
+import { ICredits } from 'src/app/shared/interfaces/credits.interface';
 
 @Component({
   selector: 'app-movie',
@@ -33,9 +32,11 @@ export class MovieComponent implements OnInit, OnDestroy {
 
   public rating: number = 3;
 
-  public movieDetails!: MovieDetails | null;
+  public movieDetails!: IMovieDetails | null;
+  public credits!: ICredits | null;
 
-  private movieDetails$: Observable<MovieDetails | null> = new Observable<Movie>();
+  private movieDetails$: Observable<IMovieDetails | null> = new Observable<IMovieDetails | null>();
+  private credits$: Observable<ICredits | null> = new Observable<ICredits | null>();
   private dateFormat$: Observable<string> = new Observable<string>();
   private yearFormat$: Observable<string> = new Observable<string>();
 
@@ -69,6 +70,7 @@ export class MovieComponent implements OnInit, OnDestroy {
 
   private initStoreSelectors(): void {
     this.movieDetails$ = this.store.select(MoviesSelectors.selectMovieDetails);
+    this.credits$ = this.store.select(CreditsSelectors.selectCredits);
     this.dateFormat$ = this.store.select(DatesSelectors.selectDateFormat);
     this.yearFormat$ = this.store.select(DatesSelectors.selectYearFormat);
   }
@@ -77,7 +79,14 @@ export class MovieComponent implements OnInit, OnDestroy {
 
     this.movieDetails$
       .pipe(takeUntil(this.destroy$))
-      .subscribe((movieDetails: MovieDetails | null) => this.movieDetails = movieDetails);
+      .subscribe((movieDetails: IMovieDetails | null) => this.movieDetails = movieDetails);
+
+    this.credits$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((credits: ICredits | null) => {
+        console.log('credits', credits);
+        this.credits = credits;
+      });
 
     this.dateFormat$
       .pipe(takeUntil(this.destroy$))

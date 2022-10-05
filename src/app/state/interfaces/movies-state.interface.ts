@@ -1,22 +1,20 @@
 /* Interfaces */
 import { IMessage } from 'src/app/shared/interfaces/message.interface';
-
-/* Models */
-import { Movie } from 'src/app/shared/models/movie.model';
-import { MovieDetails } from 'src/app/shared/models/movie-details.model';
+import { IMovie } from 'src/app/shared/interfaces/movie.interface';
+import { IMovieDetails } from 'src/app/shared/interfaces/movie-details.interface';
 
 export interface IMoviesState {
-  movieDetails: MovieDetails | null;
-  popular: Movie[];
-  nowPlaying: Movie[];
-  upcoming: Movie[];
-  topRated: Movie[];
-  latest: Movie[];
+  movieDetails: IMovieDetails | null;
+  popular: IMovie[];
+  nowPlaying: IMovie[];
+  upcoming: IMovie[];
+  topRated: IMovie[];
+  latest: IMovie[];
   loadingPopular: boolean;
   loadingNowPlaying: boolean;
   loadingUpcoming: boolean;
   loadingTopRated: boolean;
   loadingLatest: boolean;
-  loadingMovie: boolean;
+  loadingMovieDetails: boolean;
   message: IMessage | null;
 }

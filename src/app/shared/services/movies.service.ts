@@ -17,10 +17,7 @@ import { TranslocoService } from '@ngneat/transloco';
 
 /* Interfaces */
 import { IMovie } from '../interfaces/movie.interface';
-
-/* Models */
-import { Movie } from '../models/movie.model';
-import { MovieDetails } from '../models/movie-details.model';
+import { IMovieDetails } from '../interfaces/movie-details.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -40,10 +37,10 @@ export class MoviesService {
     this.store.dispatch(MoviesActions.getPopularMoviesLoad())
   }
 
-  public getPopularMoviesReport(page: number = 1): Observable<Movie[]> {
+  public getPopularMoviesReport(page: number = 1): Observable<IMovie[]> {
     return this.httpClient
       .get(`${environment.tmdbMovieUrl}/popular?api_key=${environment.tmdbKey}${this.getActiveLang()}&page=${page}&region=ES`)
-      .pipe(map((response: any) => response.results.map((movie: IMovie) => new Movie(movie))));
+      .pipe(map((response: any) => response.results as IMovie[]));
   }
 
 
@@ -53,10 +50,10 @@ export class MoviesService {
     this.store.dispatch(MoviesActions.getNowPlayingMoviesLoad())
   }
 
-  public getNowPlayingMoviesReport(page: number = 1): Observable<Movie[]> {
+  public getNowPlayingMoviesReport(page: number = 1): Observable<IMovie[]> {
     return this.httpClient
       .get(`${environment.tmdbMovieUrl}/now_playing?api_key=${environment.tmdbKey}${this.getActiveLang()}&page=${page}&region=ES`)
-      .pipe(map((response: any) => response.results.map((movie: IMovie) => new Movie(movie))));
+      .pipe(map((response: any) => response.results as IMovie[]));
   }
 
 
@@ -66,10 +63,10 @@ export class MoviesService {
     this.store.dispatch(MoviesActions.getUpcomingMoviesLoad())
   }
 
-  public getUpcomingMoviesReport(page: number = 1): Observable<Movie[]> {
+  public getUpcomingMoviesReport(page: number = 1): Observable<IMovie[]> {
     return this.httpClient
       .get(`${environment.tmdbMovieUrl}/upcoming?api_key=${environment.tmdbKey}${this.getActiveLang()}&page=${page}&region=ES`)
-      .pipe(map((response: any) => response.results.map((movie: IMovie) => new Movie(movie))));
+      .pipe(map((response: any) => response.results as IMovie[]));
   }
 
 
@@ -79,10 +76,10 @@ export class MoviesService {
     this.store.dispatch(MoviesActions.getTopRatedMoviesLoad())
   }
 
-  public getTopRatedMoviesReport(page: number = 1): Observable<Movie[]> {
+  public getTopRatedMoviesReport(page: number = 1): Observable<IMovie[]> {
     return this.httpClient
       .get(`${environment.tmdbMovieUrl}/top_rated?api_key=${environment.tmdbKey}${this.getActiveLang()}&page=${page}&region=ES`)
-      .pipe(map((response: any) => response.results.map((movie: IMovie) => new Movie(movie))));
+      .pipe(map((response: any) => response.results as IMovie[]));
   }
 
 
@@ -92,10 +89,10 @@ export class MoviesService {
     this.store.dispatch(MoviesActions.getMovieDetailsLoad({ id }))
   }
 
-  public getMovieDetailsReport(id: number | null): Observable<MovieDetails> {
+  public getMovieDetailsReport(id: number | null): Observable<IMovieDetails> {
     return this.httpClient
       .get(`${environment.tmdbMovieUrl}/${id}?api_key=${environment.tmdbKey}${this.getActiveLang()}`)
-      .pipe(map((response: any) => new MovieDetails(response)));
+      .pipe(map((response: any) => response as IMovieDetails));
   }
 
 

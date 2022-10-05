@@ -11,11 +11,9 @@ import { MoviesSelectors } from 'src/app/state/selectors/movies.selectors';
 /* Services */
 import { MoviesService } from 'src/app/shared/services/movies.service';
 
-/* Models */
-import { Movie } from 'src/app/shared/models/movie.model';
-
 /* Interfaces */
 import { IAppState } from 'src/app/state/interfaces/app-state.interface';
+import { IMovie } from 'src/app/shared/interfaces/movie.interface';
 
 @Component({
   selector: 'app-movies',
@@ -24,16 +22,16 @@ import { IAppState } from 'src/app/state/interfaces/app-state.interface';
 })
 export class MoviesComponent implements OnInit {
 
-  public popularMovies$: Observable<Movie[]> = new Observable();
+  public popularMovies$: Observable<IMovie[]> = new Observable<IMovie[]>();
   public loadingPopular$: Observable<boolean> = new Observable();
 
-  public nowPlayingMovies$: Observable<Movie[]> = new Observable();
+  public nowPlayingMovies$: Observable<IMovie[]> = new Observable<IMovie[]>();
   public loadingNowPlaying$: Observable<boolean> = new Observable();
 
-  public upcomingMovies$: Observable<Movie[]> = new Observable();
+  public upcomingMovies$: Observable<IMovie[]> = new Observable<IMovie[]>();
   public loadingUpcoming$: Observable<boolean> = new Observable();
 
-  public topRatedMovies$: Observable<Movie[]> = new Observable();
+  public topRatedMovies$: Observable<IMovie[]> = new Observable<IMovie[]>();
   public loadingTopRated$: Observable<boolean> = new Observable();
 
   constructor(

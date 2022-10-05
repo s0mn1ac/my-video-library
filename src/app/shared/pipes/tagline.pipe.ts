@@ -6,7 +6,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TaglinePipe implements PipeTransform {
 
   transform(value: string | undefined): string {
-    return value === undefined ? '' : `«${value.endsWith('.') ? value.slice(0, -1) : value}»`;
+
+    if (value === undefined || value === '') {
+      return '-';
+    }
+
+    return `«${value.endsWith('.') ? value.slice(0, -1) : value}»`;
   }
 
 }

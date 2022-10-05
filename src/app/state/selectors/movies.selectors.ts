@@ -71,7 +71,7 @@ export class MoviesSelectors {
   
   public static selectLoadingMovieDetails = createSelector(
     this.selectMoviesState,
-    (state: IMoviesState) => state.loadingMovie
+    (state: IMoviesState) => state.loadingMovieDetails
   );
   
   

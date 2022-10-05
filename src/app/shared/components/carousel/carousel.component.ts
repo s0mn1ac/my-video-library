@@ -1,8 +1,8 @@
 /* Angular */
 import { Component, Input } from '@angular/core';
 
-/* Models */
-import { Movie } from '../../models/movie.model';
+/* Interfaces */
+import { IMovie } from '../../interfaces/movie.interface';
 
 @Component({
   selector: 'app-carousel',
@@ -12,6 +12,6 @@ import { Movie } from '../../models/movie.model';
 export class CarouselComponent {
 
   @Input() carouselId!: string;
-  @Input() items!: Movie[];
+  @Input() items!: IMovie[];
 
 }

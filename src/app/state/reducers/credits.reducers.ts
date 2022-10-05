@@ -19,6 +19,7 @@ export const creditsReducer: ActionReducer<ICreditsState, Action> = createReduce
   on(CreditsActions.getCreditsLoad, (state): ICreditsState => {
     return {
       ...state,
+      credits: null,
       loading: true
     };
   }),

@@ -7,7 +7,6 @@ import { IMoviesState } from '../interfaces/movies-state.interface';
 
 /* Enums */
 import { MessageType } from 'src/app/shared/enums/message-type.enum';
-import { Movie } from 'src/app/shared/models/movie.model';
 
 export const initialState: IMoviesState = {
   movieDetails: null,
@@ -21,7 +20,7 @@ export const initialState: IMoviesState = {
   loadingUpcoming: true,
   loadingTopRated: true,
   loadingLatest: true,
-  loadingMovie: true,
+  loadingMovieDetails: true,
   message: null
 };
 
@@ -30,6 +29,7 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   on(MoviesActions.getPopularMoviesLoad, (state): IMoviesState => {
     return {
       ...state,
+      popular: [],
       loadingPopular: true
     };
   }),
@@ -50,6 +50,7 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   on(MoviesActions.getNowPlayingMoviesLoad, (state): IMoviesState => {
     return {
       ...state,
+      nowPlaying: [],
       loadingNowPlaying: true
     };
   }),
@@ -70,6 +71,7 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   on(MoviesActions.getUpcomingMoviesLoad, (state): IMoviesState => {
     return {
       ...state,
+      upcoming: [],
       loadingUpcoming: true
     };
   }),
@@ -90,6 +92,7 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   on(MoviesActions.getTopRatedMoviesLoad, (state): IMoviesState => {
     return {
       ...state,
+      topRated: [],
       loadingTopRated: true
     };
   }),
@@ -110,20 +113,21 @@ export const moviesReducer: ActionReducer<IMoviesState, Action> = createReducer(
   on(MoviesActions.getMovieDetailsLoad, (state): IMoviesState => {
     return {
       ...state,
-      loadingMovie: true
+      movieDetails: null,
+      loadingMovieDetails: true
     };
   }),
   on(MoviesActions.getMovieDetailsSuccess, (state, { movieDetails }): IMoviesState => {
     return {
       ...state,
       movieDetails: movieDetails,
-      loadingMovie: false
+      loadingMovieDetails: false
     };
   }),
   on(MoviesActions.getMovieDetailsError, (state, { error }): IMoviesState => {
     return {
       ...state,
-      loadingMovie: false,
+      loadingMovieDetails: false,
       message: { type: MessageType.Error, key: 'getMovieDetailsError', error }
     };
   }),

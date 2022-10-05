@@ -1,3 +1,4 @@
+/* Angular */
 import { AfterViewInit, Component, Input } from '@angular/core';
 
 @Component({

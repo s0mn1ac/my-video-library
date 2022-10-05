@@ -3,25 +3,25 @@
     <div class="movie-section-layout custom-layout">
 
         <div *ngIf="movieDetails !== null"
-            [style.background-image]="'linear-gradient(to right, #000000 150px, #000000D6 100%), url(https://image.tmdb.org/t/p/original' + movieDetails.backdropPath + ')'"
+            [style.background-image]="'linear-gradient(to right, #000000 150px, #000000D6 100%), url(https://image.tmdb.org/t/p/original' + movieDetails.backdrop_path + ')'"
             class="movie-header-section-layout header-section-layout">
 
             <div class="movie-header-layout header-layout">
 
                 <div class="poster-container">
-                    <img [src]="'https://image.tmdb.org/t/p/w300' + movieDetails.posterPath" class="poster-image" *ngIf="movieDetails.posterPath !== null">
-                    <img [src]="'../../../../assets/images/common/image-not-available-placeholder.png'" class="image-not-available" *ngIf="movieDetails.posterPath === null">
+                    <img [src]="'https://image.tmdb.org/t/p/w300' + movieDetails.poster_path" class="poster-image" *ngIf="movieDetails.poster_path !== null">
+                    <img [src]="'../../../../assets/images/common/image-not-available-placeholder.png'" class="image-not-available" *ngIf="movieDetails.poster_path === null">
                 </div>
     
                 <div class="info-container">
     
                     <h2>
                         {{ movieDetails.title }}
-                        <span class="year"> {{ '(' + (movieDetails.releaseDate | dateFormat : yearFormat) + ')' }} </span>
+                        <span class="year"> {{ '(' + (movieDetails.release_date | dateFormat : yearFormat) + ')' }} </span>
                     </h2>
 
                     <div class="sub-title-container">
-                        <span class="date"> {{ movieDetails.releaseDate | dateFormat : dateFormat }} </span>
+                        <span class="date"> {{ movieDetails.release_date | dateFormat : dateFormat }} </span>
                         <div class="separator"></div>
                         <ul class="genres">
                             <li *ngFor="let genre of movieDetails.genres"> {{ genre.name }} </li>
@@ -33,7 +33,7 @@
                     <div class="vote-average-container">
                         <app-vote-average
                             [voteAverageId]="'movie-details-' + movieDetails.id"
-                            [voteAverage]="movieDetails.voteAverage"
+                            [voteAverage]="movieDetails.vote_average"
                             [outerSize]="50"
                             [innerSize]="46"
                             [fontSize]="18">
@@ -41,7 +41,7 @@
                         <p-rating [(ngModel)]="rating" [stars]="5" [cancel]="false" (onRate)="onRate($event)"></p-rating>
                     </div>
 
-                    <p class="tagline"> {{ movieDetails.tagline | tagline }} </p>
+                    <p class="tagline" *ngIf="movieDetails.tagline !== undefined && movieDetails.tagline !== ''"> {{ movieDetails.tagline | tagline }} </p>
                     <h3> {{ t('movies.movie.overview') }} </h3>
                     <p class="overview"> {{ movieDetails.overview }} </p>
     

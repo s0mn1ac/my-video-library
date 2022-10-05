@@ -1,9 +1,9 @@
 /* NgRx */
 import { createAction, props } from '@ngrx/store';
 
-/* Models */
-import { Movie } from 'src/app/shared/models/movie.model';
-import { MovieDetails } from 'src/app/shared/models/movie-details.model';
+/* Interfaces */
+import { IMovie } from 'src/app/shared/interfaces/movie.interface';
+import { IMovieDetails } from 'src/app/shared/interfaces/movie-details.interface';
 
 /* Constants */
 import { MoviesConstants } from '../constants/movies.constants';
@@ -19,7 +19,7 @@ export class MoviesActions {
 
   public static getPopularMoviesSuccess = createAction(
     MoviesConstants.MOVIES_PAGE_GET_POPULAR_MOVIES_SUCCESS,
-    props<{ movies: Movie[] }>()
+    props<{ movies: IMovie[] }>()
   );
 
   public static getPopularMoviesError = createAction(
@@ -36,7 +36,7 @@ export class MoviesActions {
 
   public static getNowPlayingMoviesSuccess = createAction(
     MoviesConstants.MOVIES_PAGE_GET_NOW_PLAYING_MOVIES_SUCCESS,
-    props<{ movies: Movie[] }>()
+    props<{ movies: IMovie[] }>()
   );
 
   public static getNowPlayingMoviesError = createAction(
@@ -53,7 +53,7 @@ export class MoviesActions {
 
   public static getUpcomingMoviesSuccess = createAction(
     MoviesConstants.MOVIES_PAGE_GET_UPCOMING_MOVIES_SUCCESS,
-    props<{ movies: Movie[] }>()
+    props<{ movies: IMovie[] }>()
   );
 
   public static getUpcomingMoviesError = createAction(
@@ -70,7 +70,7 @@ export class MoviesActions {
 
   public static getTopRatedMoviesSuccess = createAction(
     MoviesConstants.MOVIES_PAGE_GET_TOP_RATED_MOVIES_SUCCESS,
-    props<{ movies: Movie[] }>()
+    props<{ movies: IMovie[] }>()
   );
 
   public static getTopRatedMoviesError = createAction(
@@ -88,7 +88,7 @@ export class MoviesActions {
 
   public static getMovieDetailsSuccess = createAction(
     MoviesConstants.MOVIES_PAGE_GET_MOVIE_DETAILS_SUCCESS,
-    props<{ movieDetails: MovieDetails }>()
+    props<{ movieDetails: IMovieDetails }>()
   );
 
   public static getMovieDetailsError = createAction(

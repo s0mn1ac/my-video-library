@@ -10,10 +10,8 @@ import { MoviesActions } from '../actions/movies.actions';
 
 /* Interfaces */
 import { MoviesService } from 'src/app/shared/services/movies.service';
-
-/* Models */
-import { Movie } from 'src/app/shared/models/movie.model';
-import { MovieDetails } from 'src/app/shared/models/movie-details.model';
+import { IMovie } from 'src/app/shared/interfaces/movie.interface';
+import { IMovieDetails } from 'src/app/shared/interfaces/movie-details.interface';
 
 @Injectable()
 export class MoviesEffects {
@@ -26,7 +24,7 @@ export class MoviesEffects {
       ofType(MoviesActions.getPopularMoviesLoad),
       mergeMap(() => this.moviesService.getPopularMoviesReport()
         .pipe(
-          map((movies: Movie[]) => (MoviesActions.getPopularMoviesSuccess({ movies }))),
+          map((movies: IMovie[]) => (MoviesActions.getPopularMoviesSuccess({ movies }))),
           catchError((error) => of(MoviesActions.getPopularMoviesError({error})))
         )
       )
@@ -41,7 +39,7 @@ export class MoviesEffects {
       ofType(MoviesActions.getNowPlayingMoviesLoad),
       mergeMap(() => this.moviesService.getNowPlayingMoviesReport()
         .pipe(
-          map((movies: Movie[]) => (MoviesActions.getNowPlayingMoviesSuccess({ movies }))),
+          map((movies: IMovie[]) => (MoviesActions.getNowPlayingMoviesSuccess({ movies }))),
           catchError((error) => of(MoviesActions.getNowPlayingMoviesError({error})))
         )
       )
@@ -56,7 +54,7 @@ export class MoviesEffects {
       ofType(MoviesActions.getUpcomingMoviesLoad),
       mergeMap(() => this.moviesService.getUpcomingMoviesReport()
         .pipe(
-          map((movies: Movie[]) => (MoviesActions.getUpcomingMoviesSuccess({ movies }))),
+          map((movies: IMovie[]) => (MoviesActions.getUpcomingMoviesSuccess({ movies }))),
           catchError((error) => of(MoviesActions.getUpcomingMoviesError({error})))
         )
       )
@@ -71,7 +69,7 @@ export class MoviesEffects {
       ofType(MoviesActions.getTopRatedMoviesLoad),
       mergeMap(() => this.moviesService.getTopRatedMoviesReport()
         .pipe(
-          map((movies: Movie[]) => (MoviesActions.getTopRatedMoviesSuccess({ movies }))),
+          map((movies: IMovie[]) => (MoviesActions.getTopRatedMoviesSuccess({ movies }))),
           catchError((error) => of(MoviesActions.getTopRatedMoviesError({error})))
         )
       )
@@ -86,7 +84,7 @@ export class MoviesEffects {
       ofType(MoviesActions.getMovieDetailsLoad),
       mergeMap((props) => this.moviesService.getMovieDetailsReport(props.id)
         .pipe(
-          map((movieDetails: MovieDetails) => (MoviesActions.getMovieDetailsSuccess({ movieDetails }))),
+          map((movieDetails: IMovieDetails) => (MoviesActions.getMovieDetailsSuccess({ movieDetails }))),
           catchError((error) => of(MoviesActions.getMovieDetailsError({error})))
         )
       )
