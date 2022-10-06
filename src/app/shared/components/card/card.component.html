@@ -1,17 +1,17 @@
-<div [id]="cardId" class="card-layout" [routerLink]="'movie/' + item.id">
+<div [id]="cardId" class="card-layout" [routerLink]="link">
 
     <div class="image-container">
-        <img [src]="'https://image.tmdb.org/t/p/w300' + item.poster_path" class="poster-image" *ngIf="item.poster_path !== null">
-        <img [src]="'../../../../assets/images/common/image-not-available-placeholder.png'" class="image-not-available" *ngIf="item.poster_path === null">
+        <img [src]="'https://image.tmdb.org/t/p/w300' + photo" class="poster-image" *ngIf="photo !== null">
+        <img [src]="'../../../../assets/images/common/image-not-available-placeholder.png'" class="image-not-available" *ngIf="photo === null">
     </div>
 
-    <div class="vote-average-container">
-        <app-vote-average [voteAverageId]="cardId" [voteAverage]="item.vote_average"></app-vote-average>
+    <div class="vote-average-container" *ngIf="showVoteAverage">
+        <app-vote-average [voteAverageId]="cardId" [voteAverage]="voteAverage"></app-vote-average>
     </div>
 
     <div class="title-container">
-        <span class="title"> {{ item.title }} </span>
-        <span class="date"> {{ item.release_date }} </span>
+        <span class="title"> {{ title }} </span>
+        <span class="subtitle"> {{ subtitle }} </span>
     </div>
 
 </div>

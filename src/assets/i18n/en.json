@@ -23,7 +23,14 @@
         "upcoming": "Upcoming",
         "topRated": "Top rated",
         "movie": {
-            "overview": "Overview"
+            "overview": "Overview",
+            "topBilledCast": "Top billed cast",
+            "fullCastAndCrew": "Full cast & crew",
+            "recommendations": "Recommendations",
+            "status": "Status",
+            "originalLanguage": "Original language",
+            "budget": "Budget",
+            "revenue": "Revenue"
         }
     },
 

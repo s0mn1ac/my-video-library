@@ -62,11 +62,25 @@
     
         </div>
 
-        <div class="body-section-layout">
+        <div class="movie-body-section-layout body-section-layout">
 
-            <div class="body-layout">
+            <div class="movie-body-layout body-layout">
 
-                <div class="more-info-container">
+                <div class="cast-container">
+
+                    <h3> {{ t('movies.movie.topBilledCast') }} </h3>
+
+                    <app-carousel carouselId="movie-details" *ngIf="((loadingCredits$ | async) === false)">
+                        <app-card *ngFor="let person of cast; let i = index"
+                            id="movie-details"
+                            [cardId]="'top-rated-' + i"
+                            [link]="'movie/' + person.id"
+                            [photo]="person.profile_path"
+                            [title]="person.name"
+                            [subtitle]="person.character"
+                            [showVoteAverage]="false">
+                        </app-card>
+                    </app-carousel>
     
                 </div>
 

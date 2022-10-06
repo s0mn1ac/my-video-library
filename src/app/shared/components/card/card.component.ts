@@ -1,9 +1,6 @@
 /* Angular */
 import { Component, Input } from '@angular/core';
 
-/* Interfaces */
-import { IMovie } from '../../interfaces/movie.interface';
-
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -12,6 +9,11 @@ import { IMovie } from '../../interfaces/movie.interface';
 export class CardComponent {
 
   @Input() cardId!: string;
-  @Input() item!: IMovie;
+  @Input() link!: string;
+  @Input() photo!: string;
+  @Input() title!: string;
+  @Input() subtitle!: string;
+  @Input() voteAverage!: number;
+  @Input() showVoteAverage: boolean = false;
 
 }

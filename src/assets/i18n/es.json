@@ -23,7 +23,14 @@
         "upcoming": "Próximamente",
         "topRated": "Mejor valoradas",
         "movie": {
-            "overview": "Vista general"
+            "overview": "Vista general",
+            "topBilledCast": "Reparto principal",
+            "fullCastAndCrew": "Reparto y equipo completo",
+            "recommendations": "Recomendaciones",
+            "status": "Estado",
+            "originalLanguage": "Idioma original",
+            "budget": "Presupuesto",
+            "revenue": "Ingresos"
         }
     },
 

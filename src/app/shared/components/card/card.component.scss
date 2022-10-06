@@ -25,6 +25,7 @@
             border-bottom-right-radius: var(--border-radius);
             box-shadow: var(--box-shadow-low);
             overflow: hidden;
+            background: var(--color-secondary-lighter);
 
             img.poster-image {
                 height: 100%;
@@ -49,9 +50,8 @@
             flex-direction: column;
             width: 100%;
             color: var(--text-color);
-            padding: 25px 19px 10px;
+            padding: 10px 19px;
             font-weight: 500;
-            font-size: 14px;
 
             span.title {
                 overflow: hidden;
@@ -60,10 +60,17 @@
                 user-select: none;
             }
 
-            span.date {
+            span.subtitle {
                 color: var(--color-secondary);
                 font-weight: 300;
                 user-select: none;
+                font-size: 14px;
+                line-height: 16px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
             }
         }
     }

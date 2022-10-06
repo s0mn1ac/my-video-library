@@ -89,12 +89,14 @@ section.movie-section {
             }
         }
 
-        div.more-info-container {
+        div.movie-body-section-layout {
 
-            div.movie-body-section-layout {
+            div.movie-body-layout {
+                gap: 2rem;
 
-                div.movie-body-layout {
-                    gap: 2rem;
+                div.cast-container {
+
+                    
                 }
             }
         }

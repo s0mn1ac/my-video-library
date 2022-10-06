@@ -20,10 +20,12 @@ import { IAppState } from 'src/app/state/interfaces/app-state.interface';
 import { IMovieDetails } from 'src/app/shared/interfaces/movie-details.interface';
 import { ICredits } from 'src/app/shared/interfaces/credits.interface';
 import { ICrew } from 'src/app/shared/interfaces/crew.interface';
-import { WritingJobs } from 'src/app/shared/enums/writing-jobs.enum';
-import { DirectingJobs } from 'src/app/shared/enums/directing-jobs.enum';
 import { IProfile } from 'src/app/shared/interfaces/profile.interface';
 import { ICast } from 'src/app/shared/interfaces/cast.interface';
+
+/* Enums */
+import { WritingJobs } from 'src/app/shared/enums/writing-jobs.enum';
+import { DirectingJobs } from 'src/app/shared/enums/directing-jobs.enum';
 
 @Component({
   selector: 'app-movie',
@@ -31,6 +33,9 @@ import { ICast } from 'src/app/shared/interfaces/cast.interface';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit, OnDestroy {
+
+  public loadingMovieDetails$: Observable<boolean> = new Observable<boolean>();
+  public loadingCredits$: Observable<boolean> = new Observable<boolean>();
 
   public dateFormat!: string;
   public yearFormat!: string;
@@ -76,6 +81,8 @@ export class MovieComponent implements OnInit, OnDestroy {
   }
 
   private initStoreSelectors(): void {
+    this.loadingMovieDetails$ = this.store.select(MoviesSelectors.selectLoadingMovieDetails);
+    this.loadingCredits$ = this.store.select(CreditsSelectors.selectLoading);
     this.movieDetails$ = this.store.select(MoviesSelectors.selectMovieDetails);
     this.credits$ = this.store.select(CreditsSelectors.selectCredits);
     this.dateFormat$ = this.store.select(DatesSelectors.selectDateFormat);
