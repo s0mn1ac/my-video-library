@@ -8,8 +8,8 @@ section.movie-section {
             background-size: cover;
             color: var(--text-color-light);
             
-            div.header-layout {
-                gap: 1rem;
+            div.movie-header-layout {
+                gap: 2rem;
 
                 div.poster-container {
                     height: 450px;
@@ -41,27 +41,11 @@ section.movie-section {
                         gap: 0.5rem;
                         margin: 1rem 0;
 
-                        ul.genres {
-                            list-style-type: none;
-                            margin: 0;
-                            padding: 0;
+                        ul.genres li {
+                            cursor: pointer;
 
-                            li {
-                                display: inline;
-                                transition: all 0.2s ease-in-out;
-                                cursor: pointer;
-
-                                &::after {
-                                    content: ",";
-                                }
-
-                                &:last-child::after {
-                                    content: "";
-                                }
-
-                                &:hover {
-                                    color: var(--color-secondary-lighter);
-                                }
+                            &:hover {
+                                color: var(--color-secondary-lighter);
                             }
                         }
     
@@ -84,14 +68,34 @@ section.movie-section {
                         font-style: italic;
                         color: var(--color-secondary-lighter);
                     }
+
+                    div.profiles-container {
+
+                        div.profile {
+                            display: flex;
+                            flex-direction: column;
+
+                            span.name {
+                                font-weight: 500;
+                                margin-block-end: 0.3rem;
+                            }
+
+                            li {
+                                font-size: 14px;
+                            }
+                        }
+                    }
                 }
             }
         }
 
         div.more-info-container {
 
-            div.body-layout {
-                gap: 1rem;
+            div.movie-body-section-layout {
+
+                div.movie-body-layout {
+                    gap: 2rem;
+                }
             }
         }
     }

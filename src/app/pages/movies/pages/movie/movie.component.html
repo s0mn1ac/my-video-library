@@ -23,7 +23,7 @@
                     <div class="sub-title-container">
                         <span class="date"> {{ movieDetails.release_date | dateFormat : dateFormat }} </span>
                         <div class="separator"></div>
-                        <ul class="genres">
+                        <ul class="genres comma-separated-list">
                             <li *ngFor="let genre of movieDetails.genres"> {{ genre.name }} </li>
                         </ul>
                         <div class="separator"></div>
@@ -45,7 +45,14 @@
                     <h3> {{ t('movies.movie.overview') }} </h3>
                     <p class="overview"> {{ movieDetails.overview }} </p>
     
-                    <div class="crew-container">
+                    <div class="profiles-container grid">
+
+                        <div class="profile grid-item" *ngFor="let profile of profiles">
+                            <span class="name"> {{ profile.name }} </span>
+                            <ul class="comma-separated-list">
+                                <li *ngFor="let job of profile.jobs"> {{ job }} </li>
+                            </ul>
+                        </div>
 
                     </div>
     

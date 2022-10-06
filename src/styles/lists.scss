@@ -1,0 +1,26 @@
+ul.comma-separated-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        position: relative;
+        display: inline;
+        transition: all 0.2s ease-in-out;
+        margin-right: 0.3rem;
+
+        &::after {
+            content: ",";
+            position: absolute;
+            right: -1px;
+        }
+
+        &:last-child {
+            margin-right: 0;
+
+            &::after {
+                content: "";
+            }
+        }
+    }
+}

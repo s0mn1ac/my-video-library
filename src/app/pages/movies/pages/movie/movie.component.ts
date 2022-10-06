@@ -19,6 +19,11 @@ import { MoviesService } from 'src/app/shared/services/movies.service';
 import { IAppState } from 'src/app/state/interfaces/app-state.interface';
 import { IMovieDetails } from 'src/app/shared/interfaces/movie-details.interface';
 import { ICredits } from 'src/app/shared/interfaces/credits.interface';
+import { ICrew } from 'src/app/shared/interfaces/crew.interface';
+import { WritingJobs } from 'src/app/shared/enums/writing-jobs.enum';
+import { DirectingJobs } from 'src/app/shared/enums/directing-jobs.enum';
+import { IProfile } from 'src/app/shared/interfaces/profile.interface';
+import { ICast } from 'src/app/shared/interfaces/cast.interface';
 
 @Component({
   selector: 'app-movie',
@@ -33,7 +38,9 @@ export class MovieComponent implements OnInit, OnDestroy {
   public rating: number = 3;
 
   public movieDetails!: IMovieDetails | null;
-  public credits!: ICredits | null;
+  public cast: ICast[] = [];
+  public crew: ICrew[] = [];
+  public profiles: IProfile[] = [];
 
   private movieDetails$: Observable<IMovieDetails | null> = new Observable<IMovieDetails | null>();
   private credits$: Observable<ICredits | null> = new Observable<ICredits | null>();
@@ -83,10 +90,7 @@ export class MovieComponent implements OnInit, OnDestroy {
 
     this.credits$
       .pipe(takeUntil(this.destroy$))
-      .subscribe((credits: ICredits | null) => {
-        console.log('credits', credits);
-        this.credits = credits;
-      });
+      .subscribe((credits: ICredits | null) => this.getProfiles(credits));
 
     this.dateFormat$
       .pipe(takeUntil(this.destroy$))
@@ -100,6 +104,37 @@ export class MovieComponent implements OnInit, OnDestroy {
   private loadPage(id: number | null): void {
     this.moviesService.getMovieDetails(id);
     this.creditsService.getCredits(id);
+  }
+
+  private getProfiles(credits: ICredits | null): void {
+
+    if (credits === null) {
+      return;
+    }
+
+    this.cast = credits.cast;
+    this.crew = credits.crew;
+
+    const directing: ICrew[] = this.crew.filter((person: ICrew) => person.job in DirectingJobs) ?? [];
+    const writing: ICrew[] = this.crew.filter((person: ICrew) => person.job in WritingJobs) ?? [];
+    const profiles: { [key: number]: IProfile } = { };
+
+    directing.forEach((director: ICrew) =>
+      profiles[director.id] = { id: director.id, name: director.name, mainJob: director.job, jobs: [director.job] });
+
+    writing.forEach((writer: ICrew) => {
+      const profile: IProfile = profiles[writer.id];
+      if (profile === undefined) {
+        profiles[writer.id] = { id: writer.id, name: writer.name, mainJob: writer.job, jobs: [writer.job] };
+      } else {
+        profile.jobs.push(writer.job);
+      }
+    });
+
+    const mainCrew: IProfile[] = Object.values(profiles);
+
+    this.profiles = mainCrew.filter((profile: IProfile) => profile.mainJob in DirectingJobs);
+    this.profiles = this.profiles.concat(mainCrew.filter((profile: IProfile) => profile.mainJob in WritingJobs));
   }
 
 }
