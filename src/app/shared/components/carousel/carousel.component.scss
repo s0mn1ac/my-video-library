@@ -10,8 +10,23 @@
         overflow-x: auto;
     }
 
+    &::before {
+        content: "";
+        z-index: 1;
+        width: 1.5rem;
+        height: var(--card-height);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(to left, var(--color-transparent) 0%, var(--background-color) 100%);
+        will-change: opacity;
+        pointer-events: none;
+        padding: 1.5rem 0 2.5rem;
+    }
+
     &::after {
         content: "";
+        z-index: 1;
         width: 1.5rem;
         height: var(--card-height);
         position: absolute;
