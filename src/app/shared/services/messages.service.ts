@@ -6,6 +6,10 @@ import { Observable } from 'rxjs';
 
 /* NgRx */
 import { Store } from '@ngrx/store';
+import { AuthActions } from 'src/app/state/actions/auth.actions';
+import { AuthSelectors } from 'src/app/state/selectors/auth.selectors';
+import { CreditsActions } from 'src/app/state/actions/credits.actions';
+import { CreditsSelectors } from 'src/app/state/selectors/credits.selectors';
 import { MoviesActions } from 'src/app/state/actions/movies.actions';
 import { MoviesSelectors } from 'src/app/state/selectors/movies.selectors';
 
@@ -26,6 +30,8 @@ import { TranslocoService } from '@ngneat/transloco';
 })
 export class MessagesService {
 
+  private selectAuthMessage$: Observable<IMessage | null> = new Observable<IMessage | null>();
+  private selectCreditsMessage$: Observable<IMessage | null> = new Observable<IMessage | null>();
   private selectMoviesMessage$: Observable<IMessage | null> = new Observable<IMessage | null>();
 
   constructor(
@@ -38,10 +44,14 @@ export class MessagesService {
   }
 
   private initStoreSelectors(): void {
+    this.selectAuthMessage$ = this.store.select(AuthSelectors.selectAuthMessage);
+    this.selectCreditsMessage$ = this.store.select(CreditsSelectors.selectCreditsMessage);
     this.selectMoviesMessage$ = this.store.select(MoviesSelectors.selectMoviesMessage);
   }
 
   private initStoreSubscriptions(): void {
+    this.selectAuthMessage$.subscribe(message => this.setMessage(message, AuthActions.clearAuthMessage()));
+    this.selectCreditsMessage$.subscribe(message => this.setMessage(message, CreditsActions.clearCreditsMessage()));
     this.selectMoviesMessage$.subscribe(message => this.setMessage(message, MoviesActions.clearMoviesMessage()));
   }
 
@@ -53,32 +63,35 @@ export class MessagesService {
 
     switch (message.type) {
       case MessageType.Success:
-        console.log(`⚫️⚫️🟢 ${message.key}`);
-        this.showSuccessToast(message.key);
+        const successDetail: string = this.translocoService.translate(`messages.success.${message.key}`);
+        console.log(`⚫️⚫️🟢 ${successDetail}`);
+        this.showSuccessToast(successDetail);
         break;
       case MessageType.Warning:
-        console.warn(`⚫️🟡⚫️ ${message.key}`);
-        this.showWarningToast(message.key);
+        const warningDetail: string = this.translocoService.translate(`messages.warning.${message.key}`);
+        console.warn(`⚫️🟡⚫️ ${warningDetail}`);
+        this.showWarningToast(warningDetail);
         break;
       case MessageType.Error:
-        console.error(`🔴⚫️⚫️ ${message.key}`);
-        this.showErrorToast(message.key);
+        const errorDetail: string = this.translocoService.translate(`messages.error.${message.key}`);
+        console.error(`🔴⚫️⚫️ ${errorDetail}`);
+        this.showErrorToast(errorDetail);
         break;
     }
     
     this.store.dispatch(action);
   }
 
-  private showSuccessToast(key: string): void {
-    this.messageService.add({ severity: MessageType.Success, detail: this.translocoService.translate(`messages.success.${key}`) });
+  private showSuccessToast(detail: string): void {
+    this.messageService.add({ severity: MessageType.Success, detail });
   }
 
-  private showWarningToast(key: string): void {
-      this.messageService.add({ severity: MessageType.Warning, detail: this.translocoService.translate(`messages.warning.${key}`) });
+  private showWarningToast(detail: string): void {
+      this.messageService.add({ severity: MessageType.Warning, detail });
   }
 
-  private showErrorToast(key: string): void {
-      this.messageService.add({ severity: MessageType.Error, detail: this.translocoService.translate(`messages.error.${key}`) });
+  private showErrorToast(detail: string): void {
+      this.messageService.add({ severity: MessageType.Error, detail });
   }
 
 }

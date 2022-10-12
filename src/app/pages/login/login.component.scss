@@ -1,0 +1,28 @@
+div.login-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    form.login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow-medium);
+
+        div.login {
+            margin-top: 1rem;
+        }
+    }
+}
+
+:host ::ng-deep {
+
+    div.p-password, input, button {
+        width: 100%;
+    }
+}

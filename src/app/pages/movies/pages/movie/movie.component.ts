@@ -26,6 +26,7 @@ import { ICast } from 'src/app/shared/interfaces/cast.interface';
 /* Enums */
 import { WritingJobs } from 'src/app/shared/enums/writing-jobs.enum';
 import { DirectingJobs } from 'src/app/shared/enums/directing-jobs.enum';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-movie',
@@ -56,6 +57,7 @@ export class MovieComponent implements OnInit, OnDestroy {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private authService: AuthService,
     private moviesService: MoviesService,
     private creditsService: CreditsService,
     private store: Store<IAppState>

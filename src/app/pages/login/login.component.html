@@ -1,0 +1,24 @@
+<div class="login-layout">
+
+    <form class="login-form" [formGroup]="loginForm" (submit)="onClickLoginButton()">
+
+        <div class="username">
+            <h3> Left Icon </h3>
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input type="text" pInputText placeholder="Search" formControlName="username" />
+            </span>
+        </div>
+
+        <div class="password">
+            <h3> Password Meter </h3>
+            <p-password [feedback]="false" formControlName="password"></p-password>
+        </div>
+
+        <div class="login">
+            <p-button label="Submit" type="submit" [disabled]="loginForm.invalid"></p-button>
+        </div>
+
+    </form>
+
+</div>

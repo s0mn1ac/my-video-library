@@ -8,8 +8,10 @@ import { of, map, mergeMap, catchError } from 'rxjs';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { MoviesActions } from '../actions/movies.actions';
 
-/* Interfaces */
+/* Services */
 import { MoviesService } from 'src/app/shared/services/movies.service';
+
+/* Interfaces */
 import { IMovie } from 'src/app/shared/interfaces/movie.interface';
 import { IMovieDetails } from 'src/app/shared/interfaces/movie-details.interface';
 

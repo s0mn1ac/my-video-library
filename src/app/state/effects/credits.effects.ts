@@ -8,10 +8,10 @@ import { of, map, mergeMap, catchError } from 'rxjs';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { CreditsActions } from '../actions/credits.actions';
 
-/* Interfaces */
+/* Services */
 import { CreditsService } from 'src/app/shared/services/credits.service';
 
-/* Models */
+/* Interfaces */
 import { ICredits } from 'src/app/shared/interfaces/credits.interface';
 
 @Injectable()

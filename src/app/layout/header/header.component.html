@@ -29,6 +29,20 @@
                         <div class="selected-container" [ngClass]="{ 'selected': header.series }"></div>
                     </div>
                 </div>
+                <div class="login-container">
+                    <button *ngIf="((logged$ | async) === false)"
+                        type="button"
+                        class="header-button"
+                        routerLink="login">
+                            {{ t('header.login') }}
+                    </button>
+                    <button *ngIf="((logged$ | async) === true)"
+                        type="button"
+                        class="header-button"
+                        (click)="onClickLogOutButton()">
+                            {{ t('header.logout') }}
+                    </button>
+                </div>
             </div>
         </div>
     

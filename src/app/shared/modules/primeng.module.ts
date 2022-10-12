@@ -9,6 +9,7 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { RatingModule } from 'primeng/rating';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { RatingModule } from 'primeng/rating';
     CardModule,
     ToastModule,
     RatingModule,
+    PasswordModule,
     SkeletonModule
   ],
   exports: [
@@ -25,6 +27,7 @@ import { RatingModule } from 'primeng/rating';
     CardModule,
     ToastModule,
     RatingModule,
+    PasswordModule,
     SkeletonModule
   ],
   providers: [

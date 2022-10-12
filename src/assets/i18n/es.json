@@ -2,7 +2,7 @@
 
     "messages": {
         "success": {
-            
+            "postCreateSessionSuccess": "Sesión iniciada correctamente"
         },
         "warning": {
             
@@ -12,8 +12,16 @@
             "getNowPlayingMoviesError": "Ha ocurrido un error al obtener el listado de películas \"En cartelera\"",
             "getUpcomingMoviesError": "Ha ocurrido un error al obtener el listado de películas \"Próximamente\"",
             "getTopRatedMoviesError": "Ha ocurrido un error al obtener el listado de películas \"Mejor valoradas\"",
-            "getMovieDetailsError": "Ha ocurrido un error al obtener los detalles de la película seleccionada"
+            "getMovieDetailsError": "Ha ocurrido un error al obtener los detalles de la película seleccionada",
+            "getRequestTokenError": "Ha ocurrido un error al obtener el token de autenticación",
+            "postCreateSessionWithLoginError": "Usuario o contraseña incorrectos",
+            "postCreateSessionError": "Ha ocurrido un error al iniciar sesión"
         }
+    },
+
+    "header": {
+        "login": "Iniciar sesión",
+        "logout": "Cerrar sesión"
     },
 
     "movies": {

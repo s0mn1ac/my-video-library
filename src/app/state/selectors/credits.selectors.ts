@@ -25,7 +25,7 @@ export class CreditsSelectors {
   
   /* --------- Message ------------------------------------------------------------------------------------------------------------------ */
   
-  public static selectMoviesMessage = createSelector(
+  public static selectCreditsMessage = createSelector(
     this.selectCreditsState,
     (state: ICreditsState) => state.message
   );

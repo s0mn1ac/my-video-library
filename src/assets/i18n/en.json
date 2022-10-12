@@ -2,7 +2,7 @@
 
     "messages": {
         "success": {
-            
+            "postCreateSessionSuccess": "Logged in successfully"
         },
         "warning": {
             
@@ -12,8 +12,16 @@
             "getNowPlayingMoviesError": "An error occurred while getting \"Now playing\" movies list",
             "getUpcomingMoviesError": "An error occurred while getting \"Upcoming\" movies list",
             "getTopRatedMoviesError": "An error occurred while getting \"Top rated\" movies list",
-            "getMovieDetailsError": "An error occurred while getting the details of the selected movie"
+            "getMovieDetailsError": "An error occurred while getting the details of the selected movie",
+            "getRequestTokenError": "An error occurred while getting the authentication token",
+            "postCreateSessionWithLoginError": "Wrong username or password",
+            "postCreateSessionError": "An error occurred trying to log in"
         }
+    },
+
+    "header": {
+        "login": "Log in",
+        "logout": "Log out"
     },
 
     "movies": {

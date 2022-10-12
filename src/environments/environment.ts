@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  tmdbAuthenticationUrl: 'https://api.themoviedb.org/3/authentication',
+  tmdbAuthenticateUrl: 'https://www.themoviedb.org/authenticate',
   tmdbMovieUrl: 'https://api.themoviedb.org/3/movie',
   tmdbSerieUrl: 'https://api.themoviedb.org/3/serie',
   tmdbKey: '2891e2c2ab994cbd1bec6f4582e77b9e'

@@ -2,19 +2,26 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 /* RxJs */
-import { Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 
 /* NgRx */
 import { Store } from '@ngrx/store';
+import { AuthSelectors } from './state/selectors/auth.selectors';
+import { AuthActions } from './state/actions/auth.actions';
+import { DatesActions } from './state/actions/dates.actions';
 
 /* Services */
-import { MessagesService } from './shared/services/messages.service';
+import { TranslocoService } from '@ngneat/transloco';
 
 /* Interfaces */
 import { IAppState } from './state/interfaces/app-state.interface';
-import { TranslocoService } from '@ngneat/transloco';
-import { DatesActions } from './state/actions/dates.actions';
+import { IAuth } from './shared/interfaces/auth.interface';
+import { ISession } from './shared/interfaces/session.interface';
+
+/* Constants */
+import { StorageConstants } from './shared/constants/storage.constants';
 import { DateFormatConstants } from './shared/constants/date-format.constants';
+import { MessagesService } from './shared/services/messages.service';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +29,10 @@ import { DateFormatConstants } from './shared/constants/date-format.constants';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
+
+  public logged$: Observable<boolean> = new Observable<boolean>();
+  public auth$: Observable<IAuth | null> = new Observable<IAuth | null>();
+  public session$: Observable<ISession | null> = new Observable<ISession | null>();
 
   private destroy$ = new Subject<boolean>();
 
@@ -32,6 +43,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.checkIfUserIsLoggedIn();
+    this.initStoreSelectors();
     this.initDateFormatSubscription();
     this.initDateFormats();
   }
@@ -39,6 +52,23 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
+  }
+
+  private checkIfUserIsLoggedIn(): void {
+    const authStorageItem: string | null = localStorage.getItem(StorageConstants.AUTH);
+    const auth: IAuth | null = authStorageItem === null ? null : JSON.parse(authStorageItem) as IAuth;
+    const sessionStorageItem: string | null = localStorage.getItem(StorageConstants.SESSION);
+    const session: ISession | null = sessionStorageItem === null ? null : JSON.parse(sessionStorageItem) as ISession;
+    if (auth !== null && session !== null) {
+      this.setAuthInitialStatus(auth);
+      this.setSessionInitialStatus(session);
+    }
+  }
+
+  private initStoreSelectors(): void {
+    this.logged$ = this.store.select(AuthSelectors.selectLogged);
+    this.auth$ = this.store.select(AuthSelectors.selectAuth);
+    this.session$ = this.store.select(AuthSelectors.selectSession);
   }
 
   private initDateFormatSubscription(): void {
@@ -59,6 +89,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
   /* --------- Store dispatchers -------------------------------------------------------------------------------------------------------- */
+
+  private setAuthInitialStatus(auth: IAuth): void {
+    this.store.dispatch(AuthActions.setAuthInitialStatus({ auth }));
+  }
+
+  private setSessionInitialStatus(session: ISession): void {
+    this.store.dispatch(AuthActions.setSessionInitialStatus({ session }));
+  }
 
   private setDateFormat(format: string): void {
     this.store.dispatch(DatesActions.setDateFormat({ format }));
