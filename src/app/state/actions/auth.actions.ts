@@ -13,21 +13,9 @@ export class AuthActions {
 
   /* --------- Set initial status ------------------------------------------------------------------------------------------------------- */
 
-  public static setAuthInitialStatus = createAction(
-    AuthConstants.AUTHENTICATION_SET_AUTH_INITIAL_STATUS,
-    props<{ auth: IAuth }>()
-  );
-
-  public static setSessionInitialStatus = createAction(
-    AuthConstants.AUTHENTICATION_SET_SESSION_INITIAL_STATUS,
-    props<{ session: ISession }>()
-  );
-
-
-  /* --------- Clear initial status ----------------------------------------------------------------------------------------------------- */
-
-  public static clearInitialStatus = createAction(
-    AuthConstants.AUTHENTICATION_CLEAR_INITIAL_STATUS
+  public static setInitialStatus = createAction(
+    AuthConstants.AUTHENTICATION_SET_INITIAL_STATUS,
+    props<{ auth: IAuth | null, session: ISession | null }>()
   );
 
 

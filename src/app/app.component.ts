@@ -60,8 +60,7 @@ export class AppComponent implements OnInit, OnDestroy {
     const sessionStorageItem: string | null = localStorage.getItem(StorageConstants.SESSION);
     const session: ISession | null = sessionStorageItem === null ? null : JSON.parse(sessionStorageItem) as ISession;
     if (auth !== null && session !== null) {
-      this.setAuthInitialStatus(auth);
-      this.setSessionInitialStatus(session);
+      this.setInitialStatus(auth, session);
     }
   }
 
@@ -90,12 +89,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   /* --------- Store dispatchers -------------------------------------------------------------------------------------------------------- */
 
-  private setAuthInitialStatus(auth: IAuth): void {
-    this.store.dispatch(AuthActions.setAuthInitialStatus({ auth }));
-  }
-
-  private setSessionInitialStatus(session: ISession): void {
-    this.store.dispatch(AuthActions.setSessionInitialStatus({ session }));
+  private setInitialStatus(auth: IAuth, session: ISession): void {
+    this.store.dispatch(AuthActions.setInitialStatus({ auth, session }));
   }
 
   private setDateFormat(format: string): void {

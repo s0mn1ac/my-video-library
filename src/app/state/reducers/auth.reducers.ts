@@ -17,14 +17,8 @@ export const initialState: IAuthState = {
 
 export const authReducer: ActionReducer<IAuthState, Action> = createReducer(
   initialState,
-  on(AuthActions.setAuthInitialStatus, (state, { auth }): IAuthState => ({
-    ...state, auth: auth
-  })),
-  on(AuthActions.setSessionInitialStatus, (state, { session }): IAuthState => ({
-    ...state, session: session
-  })),
-  on(AuthActions.clearInitialStatus, (state): IAuthState => ({
-    ...state, auth: null, session: null
+  on(AuthActions.setInitialStatus, (state, { auth, session }): IAuthState => ({
+    ...state, auth: auth, session: session
   })),
   on(AuthActions.getRequestTokenLoad, (state): IAuthState => ({
     ...state, auth: null, loading: true

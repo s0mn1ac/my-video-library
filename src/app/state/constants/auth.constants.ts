@@ -1,9 +1,6 @@
 export class AuthConstants {
 
-  public static AUTHENTICATION_SET_AUTH_INITIAL_STATUS = '[Authentication] Set Auth Initial Status';
-  public static AUTHENTICATION_SET_SESSION_INITIAL_STATUS = '[Authentication] Set Session Initial Status';
-
-  public static AUTHENTICATION_CLEAR_INITIAL_STATUS = '[Authentication] Clear Initial Status';
+  public static AUTHENTICATION_SET_INITIAL_STATUS = '[Authentication] Set Initial Status';
 
   public static AUTHENTICATION_GET_REQUEST_TOKEN_LOAD = '[Authentication] Get Request Token Load';
   public static AUTHENTICATION_GET_REQUEST_TOKEN_SUCCESS = '[Authentication] Get Request Token Success';

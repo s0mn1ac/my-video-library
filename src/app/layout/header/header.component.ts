@@ -14,6 +14,7 @@ import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/state/interfaces/app-state.interface';
 import { AuthSelectors } from 'src/app/state/selectors/auth.selectors';
 import { AuthActions } from 'src/app/state/actions/auth.actions';
+import { StorageConstants } from 'src/app/shared/constants/storage.constants';
 
 @Component({
   selector: 'app-header',
@@ -37,7 +38,9 @@ export class HeaderComponent implements OnInit {
   }
 
   public onClickLogOutButton(): void {
-    this.clearInitialStatus();
+    localStorage.removeItem(StorageConstants.AUTH);
+    localStorage.removeItem(StorageConstants.SESSION);
+    this.setInitialStatus();
   }
 
   private initStoreSelectors(): void {
@@ -61,8 +64,8 @@ export class HeaderComponent implements OnInit {
 
   /* --------- Store dispatchers -------------------------------------------------------------------------------------------------------- */
 
-  private clearInitialStatus(): void {
-    this.store.dispatch(AuthActions.clearInitialStatus());
+  private setInitialStatus(): void {
+    this.store.dispatch(AuthActions.setInitialStatus({ auth: null, session: null }));
   }
 
 }
