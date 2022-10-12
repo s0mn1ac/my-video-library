@@ -38,7 +38,7 @@
                             [innerSize]="46"
                             [fontSize]="18">
                         </app-vote-average>
-                        <p-rating [(ngModel)]="rating" [stars]="5" [cancel]="false" (onRate)="onRate($event)"></p-rating>
+                        <p-rating [(ngModel)]="rating" [stars]="5" [cancel]="false" (onRate)="onRate($event)" *ngIf="((logged$ | async) === true)"></p-rating>
                     </div>
 
                     <p class="tagline" *ngIf="movieDetails.tagline !== undefined && movieDetails.tagline !== ''"> {{ movieDetails.tagline | tagline }} </p>

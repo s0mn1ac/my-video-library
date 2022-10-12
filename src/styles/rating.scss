@@ -1,7 +1,16 @@
 p-rating {
 
+    div.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon:hover {
+        // color: yellow !important;
+    }
+
+    div.p-rating .p-rating-icon.pi-star-fill {
+        // color: yellow !important;
+    }
+
     span.p-rating-icon {
         box-shadow: none !important;
         font-size: 1.5rem !important;
     }
 }
+

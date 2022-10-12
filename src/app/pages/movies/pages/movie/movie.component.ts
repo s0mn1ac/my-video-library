@@ -10,10 +10,12 @@ import { Store } from '@ngrx/store';
 import { DatesSelectors } from 'src/app/state/selectors/dates.selectors';
 import { MoviesSelectors } from 'src/app/state/selectors/movies.selectors';
 import { CreditsSelectors } from 'src/app/state/selectors/credits.selectors';
+import { AuthSelectors } from 'src/app/state/selectors/auth.selectors';
 
 /* Services */
 import { CreditsService } from 'src/app/shared/services/credits.service';
 import { MoviesService } from 'src/app/shared/services/movies.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 /* Interfaces */
 import { IAppState } from 'src/app/state/interfaces/app-state.interface';
@@ -26,7 +28,6 @@ import { ICast } from 'src/app/shared/interfaces/cast.interface';
 /* Enums */
 import { WritingJobs } from 'src/app/shared/enums/writing-jobs.enum';
 import { DirectingJobs } from 'src/app/shared/enums/directing-jobs.enum';
-import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-movie',
@@ -34,6 +35,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit, OnDestroy {
+
+  public logged$: Observable<boolean> = new Observable<boolean>();
 
   public loadingMovieDetails$: Observable<boolean> = new Observable<boolean>();
   public loadingCredits$: Observable<boolean> = new Observable<boolean>();
@@ -83,6 +86,7 @@ export class MovieComponent implements OnInit, OnDestroy {
   }
 
   private initStoreSelectors(): void {
+    this.logged$ = this.store.select(AuthSelectors.selectLogged);
     this.loadingMovieDetails$ = this.store.select(MoviesSelectors.selectLoadingMovieDetails);
     this.loadingCredits$ = this.store.select(CreditsSelectors.selectLoading);
     this.movieDetails$ = this.store.select(MoviesSelectors.selectMovieDetails);
